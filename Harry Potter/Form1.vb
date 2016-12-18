@@ -1,78 +1,34 @@
 ﻿Imports System.IO
 Imports System.Net
-Imports System.Security.Principal
 
 Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If (principal.IsInRole(WindowsBuiltInRole.Administrator)) Then
-            SleepToolStripMenuItem.BackColor = Color.Yellow
-        End If
-
-        Try
-            setUpPlayer()
-            setUpAdmin()
-            getLocation(True)
-        Catch ex As Exception
-        End Try
-    End Sub
-
-    Private Sub setUpAdmin()
-        If (principal.IsInRole(WindowsBuiltInRole.Administrator)) Then
-            ShutDownPcToolStripMenuItem.Enabled = True
-        Else
-            ShutDownPcToolStripMenuItem.Enabled = False
-        End If
-    End Sub
-
-    Private Sub setUpPlayer()
-        If (My.Settings.fileLoc.ToString <> "") Then
-            AxWindowsMediaPlayer1.URL = My.Settings.fileLoc.ToString
-            If (My.Settings.lastAuTime.ToString <> "") Then
-                AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = My.Settings.lastAuTime
-                If (AxWindowsMediaPlayer1.Ctlcontrols.currentPosition > 5) Then
-                    AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition - 5
-                    PlayToolStripMenuItem.Text = "Pause"
-                    PlayToolStripMenuItem.Image = My.Resources._1454111120_pause_circle_fill
-                End If
-                AxWindowsMediaPlayer1.Ctlcontrols.play()
-                AxWindowsMediaPlayer1.settings.volume = 100
-            End If
-        Else
-            AxWindowsMediaPlayer1.Ctlcontrols.stop()
-        End If
-    End Sub
-
-    Private Sub PlayToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PlayToolStripMenuItem.Click
-        If PlayToolStripMenuItem.Text = "Play" Then
-            AxWindowsMediaPlayer1.Ctlcontrols.play()
-            PlayToolStripMenuItem.Text = "Pause"
-            PlayToolStripMenuItem.Image = My.Resources._1454111120_pause_circle_fill
-        Else
-            AxWindowsMediaPlayer1.Ctlcontrols.pause()
-            PlayToolStripMenuItem.Text = "Play"
-            PlayToolStripMenuItem.Image = My.Resources._1454111105_play_circle_fill
-        End If
+        setUpPlayer()
+        getLocation(True)
     End Sub
 
     Private Sub PauseToolStripMenuItem_Click(sender As Object, e As EventArgs)
         AxWindowsMediaPlayer1.Ctlcontrols.pause()
     End Sub
 
+    '################# OPEN FILE #################
     Private Sub OpenFileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenFileToolStripMenuItem.Click
-        OpenFileDialog1.ShowDialog()
-        If (OpenFileDialog1.FileName <> "") Then
-            My.Settings.fileLoc = OpenFileDialog1.FileName
+        Dim ofd As New OpenFileDialog
+        If (ofd.ShowDialog() = DialogResult.OK) Then
+            My.Settings.fileLoc = ofd.FileName
             My.Settings.Save()
             AxWindowsMediaPlayer1.URL = My.Settings.fileLoc
         Else
             MsgBox("Error, File not found or supported", MsgBoxStyle.Exclamation, "AudioBook Player")
         End If
+        ofd.Dispose()
     End Sub
 
     Private Sub LastPositionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LastPositionToolStripMenuItem.Click
         AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = My.Settings.lastAuTime - 5
     End Sub
     Dim Last As String
+
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         ManSaved.Text = My.Settings.lastManTime.ToString.Split(".")(0) + "s Manual Saved"
         ManSaving.Text = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition.ToString.Split(".")(0) + "s Save"
@@ -109,19 +65,6 @@ Public Class Form1
         upload()
     End Sub
 
-
-    Dim identity = WindowsIdentity.GetCurrent()
-    Dim principal = New WindowsPrincipal(identity)
-
-    Private Sub shutDown(tome As Integer)
-        If (principal.IsInRole(WindowsBuiltInRole.Administrator)) Then
-            Timer2.Interval = tome
-            Timer2.Start()
-        Else
-            MsgBox("Please run this program as admin to get Shut Down Pc In working", MsgBoxStyle.Information, "Audio Book Player")
-        End If
-    End Sub
-
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
         upload()
         SleepToolStripMenuItem.BackColor = Color.LimeGreen
@@ -129,121 +72,7 @@ Public Class Form1
     End Sub
 
     Private Sub SleepToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SleepToolStripMenuItem.Click
-        If (principal.IsInRole(WindowsBuiltInRole.Administrator)) Then
-            SleepToolStripMenuItem.BackColor = Color.LimeGreen
-        End If
-    End Sub
-
-    Private Sub SToolStripMenuItem3_Click_1(sender As Object, e As EventArgs) Handles SToolStripMenuItem3.Click
-        AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition + 5
-    End Sub
-
-    Private Sub SToolStripMenuItem4_Click_1(sender As Object, e As EventArgs) Handles SToolStripMenuItem4.Click
-        AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition + 10
-    End Sub
-
-    Private Sub SToolStripMenuItem5_Click_1(sender As Object, e As EventArgs) Handles SToolStripMenuItem5.Click
-        AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition + 15
-    End Sub
-
-    Private Sub SToolStripMenuItem8_Click_1(sender As Object, e As EventArgs) Handles SToolStripMenuItem8.Click
-        AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition + 20
-    End Sub
-
-    Private Sub SToolStripMenuItem9_Click_1(sender As Object, e As EventArgs) Handles SToolStripMenuItem9.Click
-        AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition + 30
-    End Sub
-
-    Private Sub SToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles SToolStripMenuItem.Click
-        AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition - 5
-    End Sub
-
-    Private Sub SToolStripMenuItem1_Click_1(sender As Object, e As EventArgs) Handles SToolStripMenuItem1.Click
-        AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition - 10
-    End Sub
-
-    Private Sub SToolStripMenuItem2_Click_1(sender As Object, e As EventArgs) Handles SToolStripMenuItem2.Click
-        AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition - 15
-    End Sub
-
-    Private Sub SToolStripMenuItem6_Click_1(sender As Object, e As EventArgs) Handles SToolStripMenuItem6.Click
-        AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition - 20
-    End Sub
-
-    Private Sub SToolStripMenuItem7_Click_1(sender As Object, e As EventArgs) Handles SToolStripMenuItem7.Click
-        AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition - 30
-    End Sub
-    Private Sub X05ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles X05ToolStripMenuItem.Click
-        If AxWindowsMediaPlayer1.settings.isAvailable("Rate") Then
-            AxWindowsMediaPlayer1.settings.rate = 0.5
-            AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition - 15
-        End If
-    End Sub
-
-    Private Sub X12ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles X12ToolStripMenuItem.Click
-        If AxWindowsMediaPlayer1.settings.isAvailable("Rate") Then
-            AxWindowsMediaPlayer1.settings.rate = 1.2
-            AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition - 15
-        End If
-    End Sub
-
-    Private Sub X13ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles X13ToolStripMenuItem.Click
-        If AxWindowsMediaPlayer1.settings.isAvailable("Rate") Then
-            AxWindowsMediaPlayer1.settings.rate = 1.3
-            AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition - 15
-        End If
-    End Sub
-
-    Private Sub X14ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles X14ToolStripMenuItem.Click
-        If AxWindowsMediaPlayer1.settings.isAvailable("Rate") Then
-            AxWindowsMediaPlayer1.settings.rate = 1.4
-            AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition - 15
-        End If
-    End Sub
-
-    Private Sub X15ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles X15ToolStripMenuItem.Click
-        If AxWindowsMediaPlayer1.settings.isAvailable("Rate") Then
-            AxWindowsMediaPlayer1.settings.rate = 1.5
-            AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition - 15
-        End If
-    End Sub
-
-    Private Sub X20ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles X20ToolStripMenuItem.Click
-        If AxWindowsMediaPlayer1.settings.isAvailable("Rate") Then
-            AxWindowsMediaPlayer1.settings.rate = 2.0
-            AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition - 15
-        End If
-    End Sub
-
-    Private Sub MinToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles MinToolStripMenuItem1.Click
-        AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition + 60
-    End Sub
-
-    Private Sub MinToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MinToolStripMenuItem.Click
-        AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition - 60
-    End Sub
-
-    Private Sub NormalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NormalToolStripMenuItem.Click
-        If AxWindowsMediaPlayer1.settings.isAvailable("Rate") Then
-            AxWindowsMediaPlayer1.settings.rate = 1.0
-            AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition - 15
-        End If
-    End Sub
-
-    Private Sub X11ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles X11ToolStripMenuItem.Click
-        If AxWindowsMediaPlayer1.settings.isAvailable("Rate") Then
-            AxWindowsMediaPlayer1.settings.rate = 1.1
-            AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition - 15
-        End If
-    End Sub
-
-    Private Sub StopShutDownToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StopShutDownToolStripMenuItem.Click
-        Process.Start(Application.ExecutablePath)
-        Me.Close()
-    End Sub
-
-    Private Sub StopToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StopToolStripMenuItem.Click
-        AxWindowsMediaPlayer1.Ctlcontrols.stop()
+        SleepToolStripMenuItem.BackColor = Color.LimeGreen
     End Sub
 
     Private Sub OnlineSavedToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OnlineSavedToolStripMenuItem.Click
@@ -254,10 +83,7 @@ Public Class Form1
 
     End Sub
 
-    Private Sub shutDownApp(tome As Integer)
-        Timer3.Interval = tome
-        Timer3.Start()
-    End Sub
+
 
     Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick
         My.Settings.Save()
@@ -265,6 +91,54 @@ Public Class Form1
     End Sub
 
     Dim okDone As String
+
+
+
+
+    Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        upload()
+    End Sub
+
+
+    '+++++++++++++++++++++++++++++++++++++++++++++++ MY FUNCTIONS '+++++++++++++++++++++++++++++++++++++++++++++++
+
+    '################### OPENS LAST AUDIO FILE AND LAST SAVED LOCATION ###################
+    Private Sub setUpPlayer()
+        AxWindowsMediaPlayer1.settings.volume = 100
+        If (My.Settings.fileLoc.ToString <> "") Then
+            AxWindowsMediaPlayer1.URL = My.Settings.fileLoc.ToString
+            If (My.Settings.lastAuTime.ToString <> "") Then
+                AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = My.Settings.lastAuTime
+                If (AxWindowsMediaPlayer1.Ctlcontrols.currentPosition > 5) Then
+                    AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition - 5
+                    PlayToolStripMenuItem.Text = "Pause"
+                    PlayToolStripMenuItem.Image = My.Resources._1454111120_pause_circle_fill
+                End If
+                AxWindowsMediaPlayer1.Ctlcontrols.play()
+            End If
+        Else
+            AxWindowsMediaPlayer1.Ctlcontrols.stop()
+        End If
+    End Sub
+
+    '############### SHUTDOWN PC ###############
+    Private Sub shutDown(tome As Integer)
+        Timer2.Interval = tome
+        Timer2.Start()
+    End Sub
+
+    '############ SHUT DOWN APP ################
+    Private Sub shutDownApp(tome As Integer)
+        Timer3.Interval = tome
+        Timer3.Start()
+    End Sub
+
+
+
+
+    '+++++++++++++++++++++++++++++++++++++++++++++++ ONLINE BOOKMARK '+++++++++++++++++++++++++++++++++++++++++++++++
+
+    '############### UPLOAD TO SERVER ##############
     Private Sub upload()
         Try
             If okDone <> "" Then
@@ -278,9 +152,10 @@ Public Class Form1
         getLocation(True)
     End Sub
 
+    '############### DOWNLOAD FROM SERVER ##############
     Private Sub getLocation(locate As Boolean)
         Try
-            Dim address As String = "http://datadump.net16.net/data.html"
+            Dim address As String = ""
             Dim client As WebClient = New WebClient()
             Dim reader As StreamReader = New StreamReader(client.OpenRead(address))
             Dim loc As String = reader.ReadToEnd
@@ -300,58 +175,71 @@ Public Class Form1
 
     End Sub
 
-    Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        upload()
+
+
+
+
+    '+++++++++++++++++++++++++++++++++++++++++++++++ CONTROL BUTTONS '+++++++++++++++++++++++++++++++++++++++++++++++
+
+    '################# STOP BUTTON #################
+    Private Sub StopToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StopToolStripMenuItem.Click
+        AxWindowsMediaPlayer1.Ctlcontrols.stop()
     End Sub
 
-    Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
-        shutDown(900000)
+    '################# PLAY BUTTON #################
+    Private Sub PlayToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PlayToolStripMenuItem.Click
+        If PlayToolStripMenuItem.Text = "Play" Then
+            AxWindowsMediaPlayer1.Ctlcontrols.play()
+            PlayToolStripMenuItem.Text = "Pause"
+            PlayToolStripMenuItem.Image = My.Resources._1454111120_pause_circle_fill
+        Else
+            AxWindowsMediaPlayer1.Ctlcontrols.pause()
+            PlayToolStripMenuItem.Text = "Play"
+            PlayToolStripMenuItem.Image = My.Resources._1454111105_play_circle_fill
+        End If
     End Sub
 
-    Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem3.Click
-        shutDown(1200000.0)
+    '################# REWIND #################
+    Private Sub SToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles SToolStripMenuItem.Click, SToolStripMenuItem1.Click, SToolStripMenuItem2.Click, SToolStripMenuItem6.Click, SToolStripMenuItem7.Click, MinToolStripMenuItem.Click
+        Dim STS As ToolStripMenuItem = CType(sender, ToolStripMenuItem)
+        AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition - Int(STS.Text.Replace("s", "").ToString)
     End Sub
 
-    Private Sub ToolStripMenuItem4_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem4.Click
-        shutDown(1800000.0)
+    '################# FORWARD #################
+    Private Sub SToolStripMenuItem3_Click_1(sender As Object, e As EventArgs) Handles SToolStripMenuItem3.Click, SToolStripMenuItem4.Click, SToolStripMenuItem5.Click, SToolStripMenuItem8.Click, SToolStripMenuItem9.Click, MinToolStripMenuItem1.Click
+        Dim STS As ToolStripMenuItem = CType(sender, ToolStripMenuItem)
+        AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition + Int(STS.Text.Replace("s", "").ToString)
     End Sub
 
-    Private Sub HourToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HourToolStripMenuItem.Click
-        shutDown(3600000.0)
+    '################ SHUTDOWN PC ##############
+    Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click, ToolStripMenuItem3.Click, ToolStripMenuItem4.Click, HourToolStripMenuItem.Click, HoursToolStripMenuItem1.Click, HoursToolStripMenuItem.Click
+        Dim STS As ToolStripMenuItem = CType(sender, ToolStripMenuItem)
+        shutDown(Int(STS.Text.Replace("min", "").ToString) * 60000)
     End Sub
 
-    Private Sub HoursToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HoursToolStripMenuItem.Click
-        shutDown(7200000.0)
+    '################ SHUTDOWN APP ##############
+    Private Sub MinToolStripMenuItem4_Click(sender As Object, e As EventArgs) Handles MinToolStripMenuItem4.Click, MinToolStripMenuItem3.Click, MinToolStripMenuItem2.Click, HourToolStripMenuItem1.Click, HourToolStripMenuItem2.Click, HoursToolStripMenuItem2.Click
+        Dim STS As ToolStripMenuItem = CType(sender, ToolStripMenuItem)
+        shutDownApp(Int(STS.Text.Replace("min", "").ToString) * 60000)
     End Sub
 
-    Private Sub HoursToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles HoursToolStripMenuItem1.Click
-        shutDown(10800000.0)
+    '############## STOP SHUTDOWNS ##############
+    Private Sub StopShutDownToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StopShutDownToolStripMenuItem.Click
+        Process.Start(Application.ExecutablePath)
+        Me.Close()
     End Sub
-
-    Private Sub MinToolStripMenuItem4_Click(sender As Object, e As EventArgs) Handles MinToolStripMenuItem4.Click
-        shutDownApp(900000)
+    '################## SPEED ###################
+    Private Sub NormalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NormalToolStripMenuItem.Click, X05ToolStripMenuItem.Click, X12ToolStripMenuItem.Click, X13ToolStripMenuItem.Click, X14ToolStripMenuItem.Click, X15ToolStripMenuItem.Click, X20ToolStripMenuItem.Click, X11ToolStripMenuItem.Click
+        Dim STS As ToolStripMenuItem = CType(sender, ToolStripMenuItem)
+        If AxWindowsMediaPlayer1.settings.isAvailable("Rate") Then
+            If (STS.Text <> "Normal") Then
+                AxWindowsMediaPlayer1.settings.rate = Convert.ToDouble(STS.Text.Replace("x", "").ToString)
+            Else
+                AxWindowsMediaPlayer1.settings.rate = 1
+            End If
+            AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition - 15
+        End If
     End Sub
-
-    Private Sub MinToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles MinToolStripMenuItem3.Click
-        shutDownApp(1200000.0)
-    End Sub
-
-    Private Sub MinToolStripMenuItem2_Click_1(sender As Object, e As EventArgs) Handles MinToolStripMenuItem2.Click
-        shutDownApp(1800000.0)
-    End Sub
-
-    Private Sub HourToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles HourToolStripMenuItem1.Click
-        shutDownApp(3600000.0)
-    End Sub
-
-    Private Sub HourToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles HourToolStripMenuItem2.Click
-        shutDownApp(7200000.0)
-    End Sub
-
-    Private Sub HoursToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles HoursToolStripMenuItem2.Click
-        shutDownApp(10800000.0)
-    End Sub
-
 End Class
 
 

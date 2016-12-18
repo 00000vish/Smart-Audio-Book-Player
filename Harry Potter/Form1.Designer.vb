@@ -77,7 +77,6 @@ Partial Class Form1
         Me.HourToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.HoursToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.StopShutDownToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.AxWindowsMediaPlayer1 = New AxWMPLib.AxWindowsMediaPlayer()
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
@@ -109,9 +108,9 @@ Partial Class Form1
         '
         'OpenFileToolStripMenuItem
         '
-        Me.OpenFileToolStripMenuItem.Image = Global.Harry_Potter.My.Resources.Resources._1454111207_editor_open_folder_glyph
+        Me.OpenFileToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources._1454111207_editor_open_folder_glyph
         Me.OpenFileToolStripMenuItem.Name = "OpenFileToolStripMenuItem"
-        Me.OpenFileToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.OpenFileToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
         Me.OpenFileToolStripMenuItem.Text = "Open File"
         '
         'ControlsToolStripMenuItem
@@ -123,14 +122,14 @@ Partial Class Form1
         '
         'PlayToolStripMenuItem
         '
-        Me.PlayToolStripMenuItem.Image = Global.Harry_Potter.My.Resources.Resources._1454111105_play_circle_fill
+        Me.PlayToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources._1454111105_play_circle_fill
         Me.PlayToolStripMenuItem.Name = "PlayToolStripMenuItem"
         Me.PlayToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.PlayToolStripMenuItem.Text = "Play"
         '
         'StopToolStripMenuItem
         '
-        Me.StopToolStripMenuItem.Image = Global.Harry_Potter.My.Resources.Resources._1454111136_206_CircledStop
+        Me.StopToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources._1454111136_206_CircledStop
         Me.StopToolStripMenuItem.Name = "StopToolStripMenuItem"
         Me.StopToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.StopToolStripMenuItem.Text = "Stop"
@@ -138,7 +137,7 @@ Partial Class Form1
         'ForwardToolStripMenuItem
         '
         Me.ForwardToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SToolStripMenuItem3, Me.SToolStripMenuItem4, Me.SToolStripMenuItem5, Me.SToolStripMenuItem8, Me.SToolStripMenuItem9, Me.MinToolStripMenuItem1})
-        Me.ForwardToolStripMenuItem.Image = Global.Harry_Potter.My.Resources.Resources._1454111257_icon_skip_forward
+        Me.ForwardToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources._1454111257_icon_skip_forward
         Me.ForwardToolStripMenuItem.Name = "ForwardToolStripMenuItem"
         Me.ForwardToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.ForwardToolStripMenuItem.Text = "Forward"
@@ -148,7 +147,7 @@ Partial Class Form1
         Me.SToolStripMenuItem3.Image = CType(resources.GetObject("SToolStripMenuItem3.Image"), System.Drawing.Image)
         Me.SToolStripMenuItem3.Name = "SToolStripMenuItem3"
         Me.SToolStripMenuItem3.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.Z), System.Windows.Forms.Keys)
-        Me.SToolStripMenuItem3.Size = New System.Drawing.Size(140, 22)
+        Me.SToolStripMenuItem3.Size = New System.Drawing.Size(130, 22)
         Me.SToolStripMenuItem3.Text = "5s"
         '
         'SToolStripMenuItem4
@@ -156,7 +155,7 @@ Partial Class Form1
         Me.SToolStripMenuItem4.Image = CType(resources.GetObject("SToolStripMenuItem4.Image"), System.Drawing.Image)
         Me.SToolStripMenuItem4.Name = "SToolStripMenuItem4"
         Me.SToolStripMenuItem4.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.X), System.Windows.Forms.Keys)
-        Me.SToolStripMenuItem4.Size = New System.Drawing.Size(140, 22)
+        Me.SToolStripMenuItem4.Size = New System.Drawing.Size(130, 22)
         Me.SToolStripMenuItem4.Text = "10s"
         '
         'SToolStripMenuItem5
@@ -164,7 +163,7 @@ Partial Class Form1
         Me.SToolStripMenuItem5.Image = CType(resources.GetObject("SToolStripMenuItem5.Image"), System.Drawing.Image)
         Me.SToolStripMenuItem5.Name = "SToolStripMenuItem5"
         Me.SToolStripMenuItem5.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
-        Me.SToolStripMenuItem5.Size = New System.Drawing.Size(140, 22)
+        Me.SToolStripMenuItem5.Size = New System.Drawing.Size(130, 22)
         Me.SToolStripMenuItem5.Text = "15s"
         '
         'SToolStripMenuItem8
@@ -172,7 +171,7 @@ Partial Class Form1
         Me.SToolStripMenuItem8.Image = CType(resources.GetObject("SToolStripMenuItem8.Image"), System.Drawing.Image)
         Me.SToolStripMenuItem8.Name = "SToolStripMenuItem8"
         Me.SToolStripMenuItem8.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.V), System.Windows.Forms.Keys)
-        Me.SToolStripMenuItem8.Size = New System.Drawing.Size(140, 22)
+        Me.SToolStripMenuItem8.Size = New System.Drawing.Size(130, 22)
         Me.SToolStripMenuItem8.Text = "20s"
         '
         'SToolStripMenuItem9
@@ -180,7 +179,7 @@ Partial Class Form1
         Me.SToolStripMenuItem9.Image = CType(resources.GetObject("SToolStripMenuItem9.Image"), System.Drawing.Image)
         Me.SToolStripMenuItem9.Name = "SToolStripMenuItem9"
         Me.SToolStripMenuItem9.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.B), System.Windows.Forms.Keys)
-        Me.SToolStripMenuItem9.Size = New System.Drawing.Size(140, 22)
+        Me.SToolStripMenuItem9.Size = New System.Drawing.Size(130, 22)
         Me.SToolStripMenuItem9.Text = "30s"
         '
         'MinToolStripMenuItem1
@@ -188,13 +187,13 @@ Partial Class Form1
         Me.MinToolStripMenuItem1.Image = CType(resources.GetObject("MinToolStripMenuItem1.Image"), System.Drawing.Image)
         Me.MinToolStripMenuItem1.Name = "MinToolStripMenuItem1"
         Me.MinToolStripMenuItem1.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
-        Me.MinToolStripMenuItem1.Size = New System.Drawing.Size(140, 22)
-        Me.MinToolStripMenuItem1.Text = "1min"
+        Me.MinToolStripMenuItem1.Size = New System.Drawing.Size(130, 22)
+        Me.MinToolStripMenuItem1.Text = "60s"
         '
         'BackToolStripMenuItem
         '
         Me.BackToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SToolStripMenuItem, Me.SToolStripMenuItem1, Me.SToolStripMenuItem2, Me.SToolStripMenuItem6, Me.SToolStripMenuItem7, Me.MinToolStripMenuItem})
-        Me.BackToolStripMenuItem.Image = Global.Harry_Potter.My.Resources.Resources._1454111303_icon_skip_backward
+        Me.BackToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources._1454111303_icon_skip_backward
         Me.BackToolStripMenuItem.Name = "BackToolStripMenuItem"
         Me.BackToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.BackToolStripMenuItem.Text = "Rewind"
@@ -204,7 +203,7 @@ Partial Class Form1
         Me.SToolStripMenuItem.Image = CType(resources.GetObject("SToolStripMenuItem.Image"), System.Drawing.Image)
         Me.SToolStripMenuItem.Name = "SToolStripMenuItem"
         Me.SToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Z), System.Windows.Forms.Keys)
-        Me.SToolStripMenuItem.Size = New System.Drawing.Size(149, 22)
+        Me.SToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
         Me.SToolStripMenuItem.Text = "-5s"
         '
         'SToolStripMenuItem1
@@ -212,7 +211,7 @@ Partial Class Form1
         Me.SToolStripMenuItem1.Image = CType(resources.GetObject("SToolStripMenuItem1.Image"), System.Drawing.Image)
         Me.SToolStripMenuItem1.Name = "SToolStripMenuItem1"
         Me.SToolStripMenuItem1.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.X), System.Windows.Forms.Keys)
-        Me.SToolStripMenuItem1.Size = New System.Drawing.Size(149, 22)
+        Me.SToolStripMenuItem1.Size = New System.Drawing.Size(139, 22)
         Me.SToolStripMenuItem1.Text = "-10s"
         '
         'SToolStripMenuItem2
@@ -220,7 +219,7 @@ Partial Class Form1
         Me.SToolStripMenuItem2.Image = CType(resources.GetObject("SToolStripMenuItem2.Image"), System.Drawing.Image)
         Me.SToolStripMenuItem2.Name = "SToolStripMenuItem2"
         Me.SToolStripMenuItem2.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
-        Me.SToolStripMenuItem2.Size = New System.Drawing.Size(149, 22)
+        Me.SToolStripMenuItem2.Size = New System.Drawing.Size(139, 22)
         Me.SToolStripMenuItem2.Text = "-15s"
         '
         'SToolStripMenuItem6
@@ -228,7 +227,7 @@ Partial Class Form1
         Me.SToolStripMenuItem6.Image = CType(resources.GetObject("SToolStripMenuItem6.Image"), System.Drawing.Image)
         Me.SToolStripMenuItem6.Name = "SToolStripMenuItem6"
         Me.SToolStripMenuItem6.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.V), System.Windows.Forms.Keys)
-        Me.SToolStripMenuItem6.Size = New System.Drawing.Size(149, 22)
+        Me.SToolStripMenuItem6.Size = New System.Drawing.Size(139, 22)
         Me.SToolStripMenuItem6.Text = "-20s"
         '
         'SToolStripMenuItem7
@@ -236,7 +235,7 @@ Partial Class Form1
         Me.SToolStripMenuItem7.Image = CType(resources.GetObject("SToolStripMenuItem7.Image"), System.Drawing.Image)
         Me.SToolStripMenuItem7.Name = "SToolStripMenuItem7"
         Me.SToolStripMenuItem7.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.B), System.Windows.Forms.Keys)
-        Me.SToolStripMenuItem7.Size = New System.Drawing.Size(149, 22)
+        Me.SToolStripMenuItem7.Size = New System.Drawing.Size(139, 22)
         Me.SToolStripMenuItem7.Text = "-30s"
         '
         'MinToolStripMenuItem
@@ -244,13 +243,13 @@ Partial Class Form1
         Me.MinToolStripMenuItem.Image = CType(resources.GetObject("MinToolStripMenuItem.Image"), System.Drawing.Image)
         Me.MinToolStripMenuItem.Name = "MinToolStripMenuItem"
         Me.MinToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
-        Me.MinToolStripMenuItem.Size = New System.Drawing.Size(149, 22)
-        Me.MinToolStripMenuItem.Text = "-1min"
+        Me.MinToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.MinToolStripMenuItem.Text = "-60s"
         '
         'SpeedToolStripMenuItem
         '
         Me.SpeedToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NormalToolStripMenuItem, Me.X05ToolStripMenuItem, Me.X10ToolStripMenuItem, Me.X11ToolStripMenuItem, Me.X12ToolStripMenuItem, Me.X13ToolStripMenuItem, Me.X14ToolStripMenuItem, Me.X15ToolStripMenuItem, Me.X20ToolStripMenuItem})
-        Me.SpeedToolStripMenuItem.Image = Global.Harry_Potter.My.Resources.Resources._1454111347_time_24
+        Me.SpeedToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources._1454111347_time_24
         Me.SpeedToolStripMenuItem.Name = "SpeedToolStripMenuItem"
         Me.SpeedToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.SpeedToolStripMenuItem.Text = "Speed"
@@ -259,69 +258,69 @@ Partial Class Form1
         '
         Me.NormalToolStripMenuItem.Image = CType(resources.GetObject("NormalToolStripMenuItem.Image"), System.Drawing.Image)
         Me.NormalToolStripMenuItem.Name = "NormalToolStripMenuItem"
-        Me.NormalToolStripMenuItem.Size = New System.Drawing.Size(114, 22)
+        Me.NormalToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.NormalToolStripMenuItem.Text = "Normal"
         '
         'X05ToolStripMenuItem
         '
         Me.X05ToolStripMenuItem.Image = CType(resources.GetObject("X05ToolStripMenuItem.Image"), System.Drawing.Image)
         Me.X05ToolStripMenuItem.Name = "X05ToolStripMenuItem"
-        Me.X05ToolStripMenuItem.Size = New System.Drawing.Size(114, 22)
+        Me.X05ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.X05ToolStripMenuItem.Text = "x0.5"
         '
         'X10ToolStripMenuItem
         '
         Me.X10ToolStripMenuItem.Image = CType(resources.GetObject("X10ToolStripMenuItem.Image"), System.Drawing.Image)
         Me.X10ToolStripMenuItem.Name = "X10ToolStripMenuItem"
-        Me.X10ToolStripMenuItem.Size = New System.Drawing.Size(114, 22)
+        Me.X10ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.X10ToolStripMenuItem.Text = "x1.0"
         '
         'X11ToolStripMenuItem
         '
         Me.X11ToolStripMenuItem.Image = CType(resources.GetObject("X11ToolStripMenuItem.Image"), System.Drawing.Image)
         Me.X11ToolStripMenuItem.Name = "X11ToolStripMenuItem"
-        Me.X11ToolStripMenuItem.Size = New System.Drawing.Size(114, 22)
+        Me.X11ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.X11ToolStripMenuItem.Text = "x1.1"
         '
         'X12ToolStripMenuItem
         '
         Me.X12ToolStripMenuItem.Image = CType(resources.GetObject("X12ToolStripMenuItem.Image"), System.Drawing.Image)
         Me.X12ToolStripMenuItem.Name = "X12ToolStripMenuItem"
-        Me.X12ToolStripMenuItem.Size = New System.Drawing.Size(114, 22)
+        Me.X12ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.X12ToolStripMenuItem.Text = "x1.2"
         '
         'X13ToolStripMenuItem
         '
         Me.X13ToolStripMenuItem.Image = CType(resources.GetObject("X13ToolStripMenuItem.Image"), System.Drawing.Image)
         Me.X13ToolStripMenuItem.Name = "X13ToolStripMenuItem"
-        Me.X13ToolStripMenuItem.Size = New System.Drawing.Size(114, 22)
+        Me.X13ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.X13ToolStripMenuItem.Text = "x1.3"
         '
         'X14ToolStripMenuItem
         '
         Me.X14ToolStripMenuItem.Image = CType(resources.GetObject("X14ToolStripMenuItem.Image"), System.Drawing.Image)
         Me.X14ToolStripMenuItem.Name = "X14ToolStripMenuItem"
-        Me.X14ToolStripMenuItem.Size = New System.Drawing.Size(114, 22)
+        Me.X14ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.X14ToolStripMenuItem.Text = "x1.4"
         '
         'X15ToolStripMenuItem
         '
         Me.X15ToolStripMenuItem.Image = CType(resources.GetObject("X15ToolStripMenuItem.Image"), System.Drawing.Image)
         Me.X15ToolStripMenuItem.Name = "X15ToolStripMenuItem"
-        Me.X15ToolStripMenuItem.Size = New System.Drawing.Size(114, 22)
+        Me.X15ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.X15ToolStripMenuItem.Text = "x1.5"
         '
         'X20ToolStripMenuItem
         '
         Me.X20ToolStripMenuItem.Image = CType(resources.GetObject("X20ToolStripMenuItem.Image"), System.Drawing.Image)
         Me.X20ToolStripMenuItem.Name = "X20ToolStripMenuItem"
-        Me.X20ToolStripMenuItem.Size = New System.Drawing.Size(114, 22)
+        Me.X20ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.X20ToolStripMenuItem.Text = "x2.0"
         '
         'LastPositionToolStripMenuItem
         '
         Me.LastPositionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AutoSaved, Me.ManSaved, Me.OnlineSavedToolStripMenuItem})
-        Me.LastPositionToolStripMenuItem.Image = Global.Harry_Potter.My.Resources.Resources._1454111374_save
+        Me.LastPositionToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources._1454111374_save
         Me.LastPositionToolStripMenuItem.Name = "LastPositionToolStripMenuItem"
         Me.LastPositionToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.LastPositionToolStripMenuItem.Text = "Saved Locations"
@@ -342,14 +341,14 @@ Partial Class Form1
         '
         'OnlineSavedToolStripMenuItem
         '
-        Me.OnlineSavedToolStripMenuItem.Image = Global.Harry_Potter.My.Resources.Resources._1454111374_save
+        Me.OnlineSavedToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources._1454111374_save
         Me.OnlineSavedToolStripMenuItem.Name = "OnlineSavedToolStripMenuItem"
         Me.OnlineSavedToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.OnlineSavedToolStripMenuItem.Text = "Online Saved"
         '
         'ManSaving
         '
-        Me.ManSaving.Image = Global.Harry_Potter.My.Resources.Resources._1454111428_downloads
+        Me.ManSaving.Image = Global.AudioBook.My.Resources.Resources._1454111428_downloads
         Me.ManSaving.Name = "ManSaving"
         Me.ManSaving.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.Space), System.Windows.Forms.Keys)
         Me.ManSaving.Size = New System.Drawing.Size(178, 22)
@@ -359,7 +358,7 @@ Partial Class Form1
         '
         Me.AutoSave.Enabled = False
         Me.AutoSave.ForeColor = System.Drawing.Color.Silver
-        Me.AutoSave.Image = Global.Harry_Potter.My.Resources.Resources._1454111454_spinner
+        Me.AutoSave.Image = Global.AudioBook.My.Resources.Resources._1454111454_spinner
         Me.AutoSave.Name = "AutoSave"
         Me.AutoSave.Size = New System.Drawing.Size(178, 22)
         Me.AutoSave.Text = "Loading"
@@ -376,7 +375,7 @@ Partial Class Form1
         'ShutDownPcToolStripMenuItem
         '
         Me.ShutDownPcToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem2, Me.ToolStripMenuItem3, Me.ToolStripMenuItem4, Me.HourToolStripMenuItem, Me.HoursToolStripMenuItem, Me.HoursToolStripMenuItem1})
-        Me.ShutDownPcToolStripMenuItem.Image = Global.Harry_Potter.My.Resources.Resources._1454111513_power_button
+        Me.ShutDownPcToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources._1454111513_power_button
         Me.ShutDownPcToolStripMenuItem.Name = "ShutDownPcToolStripMenuItem"
         Me.ShutDownPcToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
         Me.ShutDownPcToolStripMenuItem.Text = "Shut Down Pc In"
@@ -386,48 +385,48 @@ Partial Class Form1
         '
         Me.ToolStripMenuItem2.Image = CType(resources.GetObject("ToolStripMenuItem2.Image"), System.Drawing.Image)
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(115, 22)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(152, 22)
         Me.ToolStripMenuItem2.Text = "15 min"
         '
         'ToolStripMenuItem3
         '
         Me.ToolStripMenuItem3.Image = CType(resources.GetObject("ToolStripMenuItem3.Image"), System.Drawing.Image)
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(115, 22)
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(152, 22)
         Me.ToolStripMenuItem3.Text = "20 min"
         '
         'ToolStripMenuItem4
         '
         Me.ToolStripMenuItem4.Image = CType(resources.GetObject("ToolStripMenuItem4.Image"), System.Drawing.Image)
         Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(115, 22)
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(152, 22)
         Me.ToolStripMenuItem4.Text = "30 min"
         '
         'HourToolStripMenuItem
         '
         Me.HourToolStripMenuItem.Image = CType(resources.GetObject("HourToolStripMenuItem.Image"), System.Drawing.Image)
         Me.HourToolStripMenuItem.Name = "HourToolStripMenuItem"
-        Me.HourToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
+        Me.HourToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.HourToolStripMenuItem.Text = "1 Hour"
         '
         'HoursToolStripMenuItem
         '
         Me.HoursToolStripMenuItem.Image = CType(resources.GetObject("HoursToolStripMenuItem.Image"), System.Drawing.Image)
         Me.HoursToolStripMenuItem.Name = "HoursToolStripMenuItem"
-        Me.HoursToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
+        Me.HoursToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.HoursToolStripMenuItem.Text = "2 Hours"
         '
         'HoursToolStripMenuItem1
         '
         Me.HoursToolStripMenuItem1.Image = CType(resources.GetObject("HoursToolStripMenuItem1.Image"), System.Drawing.Image)
         Me.HoursToolStripMenuItem1.Name = "HoursToolStripMenuItem1"
-        Me.HoursToolStripMenuItem1.Size = New System.Drawing.Size(115, 22)
+        Me.HoursToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.HoursToolStripMenuItem1.Text = "3 Hours"
         '
         'CloseAppToolStripMenuItem
         '
         Me.CloseAppToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MinToolStripMenuItem4, Me.MinToolStripMenuItem3, Me.MinToolStripMenuItem2, Me.HourToolStripMenuItem1, Me.HourToolStripMenuItem2, Me.HoursToolStripMenuItem2})
-        Me.CloseAppToolStripMenuItem.Image = Global.Harry_Potter.My.Resources.Resources._1454111513_power_button
+        Me.CloseAppToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources._1454111513_power_button
         Me.CloseAppToolStripMenuItem.Name = "CloseAppToolStripMenuItem"
         Me.CloseAppToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
         Me.CloseAppToolStripMenuItem.Text = "Shut Down App In"
@@ -476,14 +475,10 @@ Partial Class Form1
         '
         'StopShutDownToolStripMenuItem
         '
-        Me.StopShutDownToolStripMenuItem.Image = Global.Harry_Potter.My.Resources.Resources._1454111563_cross_24
+        Me.StopShutDownToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources._1454111563_cross_24
         Me.StopShutDownToolStripMenuItem.Name = "StopShutDownToolStripMenuItem"
         Me.StopShutDownToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
         Me.StopShutDownToolStripMenuItem.Text = "Stop Auto Shut Down"
-        '
-        'OpenFileDialog1
-        '
-        Me.OpenFileDialog1.Filter = "Mp3|*.mp3|M4B|*.m4b|Mp4|*.mp4|All Files|*.*"
         '
         'Timer2
         '
@@ -533,7 +528,6 @@ Partial Class Form1
     Friend WithEvents ControlsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PlayToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents StopToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents LastPositionToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AutoSaved As ToolStripMenuItem
     Friend WithEvents ManSaved As ToolStripMenuItem

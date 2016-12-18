@@ -6,9 +6,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{BD2D40BB-8698-49FE-9E17-419BBBBB2B4B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>Harry_Potter.My.MyApplication</StartupObject>
-    <RootNamespace>Harry_Potter</RootNamespace>
-    <AssemblyName>Harry Potter</AssemblyName>
+    <StartupObject>AudioBook.My.MyApplication</StartupObject>
+    <RootNamespace>AudioBook</RootNamespace>
+    <AssemblyName>AudioBook</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -20,7 +20,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>Harry Potter.xml</DocumentationFile>
+    <DocumentationFile>AudioBook.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -30,7 +30,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>Harry Potter.xml</DocumentationFile>
+    <DocumentationFile>AudioBook.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
