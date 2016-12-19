@@ -145,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="book.ico" />
+    <None Include="Resources\hddPNG1.png" />
     <None Include="Resources\clockPNG.png" />
     <None Include="Resources\puasePNG.png" />
     <None Include="Resources\powerPNG2.png" />

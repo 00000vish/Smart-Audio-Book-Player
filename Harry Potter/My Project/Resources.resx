@@ -124,14 +124,17 @@
   <data name="backwardPNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\backwardPNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="clockPNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clockPNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="clearPNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\clearPNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="playPNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\playPNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="savingPNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\savingPNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="savePNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\savePNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="stopPNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\stopPNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,13 +145,13 @@
   <data name="powerPNG2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\powerPNG2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="savePNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\savePNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="playPNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\playPNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="forwardPNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\forwardPNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="clockPNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clockPNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hddPNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hddPNG1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
