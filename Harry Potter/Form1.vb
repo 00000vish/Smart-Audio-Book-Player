@@ -126,7 +126,6 @@ Public Class Form1
                     AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = Convert.ToDouble(loc.ToString)
                 End If
             Catch ex As Exception
-                MsgBox(ex.ToString)
             End Try
         End If
     End Sub
