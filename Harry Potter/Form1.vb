@@ -2,11 +2,11 @@
 Imports System.Net
 
 Public Class Form1
-    Dim shutDownPc As Boolean = False
+    Dim shutDownPc As Boolean = True
     Dim toUpload As String = ""
     Dim lastSave As String = ""
 
-    Dim onlineEnabled = False
+    Dim onlineEnabled = True
     Dim phpFileURL As String = "" 'URL for the php file. example : http://exmaple.com/AudioBookSync/post.php
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -101,25 +101,27 @@ Public Class Form1
 
     '############### UPLOAD TO SERVER ##############
     Private Sub upload()
-        Try
-            If toUpload <> "" And onlineEnabled Then
-                Dim request As WebRequest = WebRequest.Create(phpFileURL & "?w=" & toUpload)
-                request.GetResponse()
-            End If
-        Catch ex As Exception
-        End Try
-        getOnlineLocation(False)
+        If (onlineEnabled = True) Then
+            Try
+                If toUpload <> "" Then
+                    Dim request As WebRequest = WebRequest.Create(phpFileURL & "?w=" & toUpload)
+                    request.GetResponse()
+                End If
+            Catch ex As Exception
+            End Try
+            getOnlineLocation(False)
+        End If
     End Sub
 
     '############### DOWNLOAD FROM SERVER ##############
     Private Sub getOnlineLocation(jump As Boolean)
         If (onlineEnabled) Then
             Try
-                Dim address As String = phpFileURL.Replace("post.php", "") + "/data.txt"
+                Dim address As String = phpFileURL.Replace("post.php", "") + "data.txt"
                 Dim client As WebClient = New WebClient()
                 Dim reader As StreamReader = New StreamReader(client.OpenRead(address))
                 Dim loc As String = reader.ReadToEnd
-
+                MsgBox(loc)
                 OnlineSavedToolStripMenuItem.Text = Convert.ToInt32(loc) & " Online Saved"
                 If (jump) Then
                     AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = Convert.ToInt32(loc)
