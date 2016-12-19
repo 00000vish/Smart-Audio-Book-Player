@@ -2,12 +2,10 @@
 Imports System.Net
 
 Public Class Form1
-    Dim onlineEnabled = False
-    Dim phpFileURL As String = "" 'URL for the php file. example : http://exmaple.com/AudioBookSync/post.php
-
     Dim shutDownPc As Boolean = False
     Dim toUpload As String = ""
     Dim lastSave As String = ""
+    Dim phpFileURL As String = "" 'URL for the php file. example : http://exmaple.com/AudioBookSync/post.php
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         setUpPlayer()
@@ -103,7 +101,7 @@ Public Class Form1
     '############### UPLOAD TO SERVER ##############
     Private Sub upload()
         Try
-            If toUpload <> "" And onlineEnabled Then
+            If toUpload <> "" Then
                 Dim request As WebRequest = WebRequest.Create(phpFileURL & "?w=" & toUpload)
                 request.GetResponse()
             End If
@@ -114,21 +112,20 @@ Public Class Form1
 
     '############### DOWNLOAD FROM SERVER ##############
     Private Sub getOnlineLocation(jump As Boolean)
-        If (onlineEnabled) Then
-            Try
-                Dim address As String = phpFileURL.Replace("post.php", "") + "/data.txt"
-                Dim client As WebClient = New WebClient()
-                Dim reader As StreamReader = New StreamReader(client.OpenRead(address))
-                Dim loc As String = reader.ReadToEnd
+        Try
+            Dim address As String = phpFileURL.Replace("post.php", "") + "/data.txt"
+            Dim client As WebClient = New WebClient()
+            Dim reader As StreamReader = New StreamReader(client.OpenRead(address))
+            Dim loc As String = reader.ReadToEnd
 
-                OnlineSavedToolStripMenuItem.Text = Convert.ToInt32(loc) & " Online Saved"
-                If (jump) Then
-                    AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = Convert.ToInt32(loc)
-                End If
-            Catch ex As Exception
-                MsgBox(ex.ToString)
-            End Try
-        End If
+            OnlineSavedToolStripMenuItem.Text = Convert.ToInt32(loc) & " Online Saved"
+            If (jump) Then
+                AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = Convert.ToInt32(loc)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+
     End Sub
 
     '+++++++++++++++++++++++++++++++++++++++++++++++ CONTROL BUTTONS +++++++++++++++++++++++++++++++++++++++++++++++
@@ -198,7 +195,7 @@ Public Class Form1
         My.Settings.lastManTime = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition
         My.Settings.Save()
         toUpload = My.Settings.lastManTime
-        upload()
+        'upload()
     End Sub
     '############## JUMP TO AUTO SAVE #########
     Private Sub AutoSavedToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AutoSaved.Click
