@@ -118,40 +118,37 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="1454111347_time-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1454111347_time-24.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="folderPNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\folderPNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1454111207_editor-open-folder-glyph" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1454111207_editor-open-folder-glyph.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="backwardPNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backwardPNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1454111428_downloads" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1454111428_downloads.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="clearPNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clearPNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1454111374_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1454111374_save.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="playPNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\playPNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1454111513_power-button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1454111513_power-button.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="savingPNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\savingPNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1454111303_icon-skip-backward" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1454111303_icon-skip-backward.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="stopPNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\stopPNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1454111120_pause-circle-fill" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1454111120_pause-circle-fill.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="puasePNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\puasePNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1454111454_spinner" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1454111454_spinner.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="powerPNG2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\powerPNG2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1454111257_icon-skip-forward" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1454111257_icon-skip-forward.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="savePNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\savePNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1454111136_206_CircledStop" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1454111136_206_CircledStop.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="forwardPNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\forwardPNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1454111105_play-circle-fill" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1454111105_play-circle-fill.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1454111563_cross-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1454111563_cross-24.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="clockPNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clockPNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

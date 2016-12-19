@@ -5,6 +5,8 @@ Public Class Form1
     Dim shutDownPc As Boolean = False
     Dim toUpload As String = ""
     Dim lastSave As String = ""
+
+    Dim onlineEnabled = False
     Dim phpFileURL As String = "" 'URL for the php file. example : http://exmaple.com/AudioBookSync/post.php
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -14,11 +16,11 @@ Public Class Form1
 
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Try
+            My.Settings.Save()
             upload()
         Catch ex As Exception
         End Try
     End Sub
-
 
     '+++++++++++++++++++++++++++++++++++++++++++++++ OTHER FUNCTIONS +++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -47,10 +49,10 @@ Public Class Form1
         If lastSave <> AxWindowsMediaPlayer1.Ctlcontrols.currentPosition.ToString Then
             lastSave = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition.ToString
             PlayToolStripMenuItem.Text = "Pause"
-            PlayToolStripMenuItem.Image = My.Resources._1454111120_pause_circle_fill
+            PlayToolStripMenuItem.Image = My.Resources.puasePNG
         Else
             PlayToolStripMenuItem.Text = "Play"
-            PlayToolStripMenuItem.Image = My.Resources._1454111105_play_circle_fill
+            PlayToolStripMenuItem.Image = My.Resources.playPNG
         End If
         My.Settings.lastAuTime = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition
         My.Settings.Save()
@@ -66,7 +68,7 @@ Public Class Form1
                 If (AxWindowsMediaPlayer1.Ctlcontrols.currentPosition > 5) Then
                     AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition - 5
                     PlayToolStripMenuItem.Text = "Pause"
-                    PlayToolStripMenuItem.Image = My.Resources._1454111120_pause_circle_fill
+                    PlayToolStripMenuItem.Image = My.Resources.puasePNG
                 End If
                 AxWindowsMediaPlayer1.Ctlcontrols.play()
             End If
@@ -95,13 +97,12 @@ Public Class Form1
         End If
     End Sub
 
-
     '+++++++++++++++++++++++++++++++++++++++++++++++ ONLINE BOOKMARK '+++++++++++++++++++++++++++++++++++++++++++++++
 
     '############### UPLOAD TO SERVER ##############
     Private Sub upload()
         Try
-            If toUpload <> "" Then
+            If toUpload <> "" And onlineEnabled Then
                 Dim request As WebRequest = WebRequest.Create(phpFileURL & "?w=" & toUpload)
                 request.GetResponse()
             End If
@@ -112,20 +113,21 @@ Public Class Form1
 
     '############### DOWNLOAD FROM SERVER ##############
     Private Sub getOnlineLocation(jump As Boolean)
-        Try
-            Dim address As String = phpFileURL.Replace("post.php", "") + "/data.txt"
-            Dim client As WebClient = New WebClient()
-            Dim reader As StreamReader = New StreamReader(client.OpenRead(address))
-            Dim loc As String = reader.ReadToEnd
+        If (onlineEnabled) Then
+            Try
+                Dim address As String = phpFileURL.Replace("post.php", "") + "/data.txt"
+                Dim client As WebClient = New WebClient()
+                Dim reader As StreamReader = New StreamReader(client.OpenRead(address))
+                Dim loc As String = reader.ReadToEnd
 
-            OnlineSavedToolStripMenuItem.Text = Convert.ToInt32(loc) & " Online Saved"
-            If (jump) Then
-                AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = Convert.ToInt32(loc)
-            End If
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-        End Try
-
+                OnlineSavedToolStripMenuItem.Text = Convert.ToInt32(loc) & " Online Saved"
+                If (jump) Then
+                    AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = Convert.ToInt32(loc)
+                End If
+            Catch ex As Exception
+                MsgBox(ex.ToString)
+            End Try
+        End If
     End Sub
 
     '+++++++++++++++++++++++++++++++++++++++++++++++ CONTROL BUTTONS +++++++++++++++++++++++++++++++++++++++++++++++
@@ -140,11 +142,11 @@ Public Class Form1
         If PlayToolStripMenuItem.Text = "Play" Then
             AxWindowsMediaPlayer1.Ctlcontrols.play()
             PlayToolStripMenuItem.Text = "Pause"
-            PlayToolStripMenuItem.Image = My.Resources._1454111120_pause_circle_fill
+            PlayToolStripMenuItem.Image = My.Resources.puasePNG
         Else
             AxWindowsMediaPlayer1.Ctlcontrols.pause()
             PlayToolStripMenuItem.Text = "Play"
-            PlayToolStripMenuItem.Image = My.Resources._1454111105_play_circle_fill
+            PlayToolStripMenuItem.Image = My.Resources.playPNG
         End If
     End Sub
 
@@ -195,7 +197,7 @@ Public Class Form1
         My.Settings.lastManTime = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition
         My.Settings.Save()
         toUpload = My.Settings.lastManTime
-        'upload()
+        upload()
     End Sub
     '############## JUMP TO AUTO SAVE #########
     Private Sub AutoSavedToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AutoSaved.Click

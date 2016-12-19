@@ -108,7 +108,7 @@ Partial Class Form1
         '
         'OpenFileToolStripMenuItem
         '
-        Me.OpenFileToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources._1454111207_editor_open_folder_glyph
+        Me.OpenFileToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources.folderPNG
         Me.OpenFileToolStripMenuItem.Name = "OpenFileToolStripMenuItem"
         Me.OpenFileToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
         Me.OpenFileToolStripMenuItem.Text = "Open File"
@@ -122,14 +122,14 @@ Partial Class Form1
         '
         'PlayToolStripMenuItem
         '
-        Me.PlayToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources._1454111105_play_circle_fill
+        Me.PlayToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources.playPNG
         Me.PlayToolStripMenuItem.Name = "PlayToolStripMenuItem"
         Me.PlayToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.PlayToolStripMenuItem.Text = "Play"
         '
         'StopToolStripMenuItem
         '
-        Me.StopToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources._1454111136_206_CircledStop
+        Me.StopToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources.stopPNG
         Me.StopToolStripMenuItem.Name = "StopToolStripMenuItem"
         Me.StopToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.StopToolStripMenuItem.Text = "Stop"
@@ -137,7 +137,7 @@ Partial Class Form1
         'ForwardToolStripMenuItem
         '
         Me.ForwardToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SToolStripMenuItem3, Me.SToolStripMenuItem4, Me.SToolStripMenuItem5, Me.SToolStripMenuItem8, Me.SToolStripMenuItem9, Me.MinToolStripMenuItem1})
-        Me.ForwardToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources._1454111257_icon_skip_forward
+        Me.ForwardToolStripMenuItem.Image = CType(resources.GetObject("ForwardToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ForwardToolStripMenuItem.Name = "ForwardToolStripMenuItem"
         Me.ForwardToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.ForwardToolStripMenuItem.Text = "Forward"
@@ -193,7 +193,7 @@ Partial Class Form1
         'BackToolStripMenuItem
         '
         Me.BackToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SToolStripMenuItem, Me.SToolStripMenuItem1, Me.SToolStripMenuItem2, Me.SToolStripMenuItem6, Me.SToolStripMenuItem7, Me.MinToolStripMenuItem})
-        Me.BackToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources._1454111303_icon_skip_backward
+        Me.BackToolStripMenuItem.Image = CType(resources.GetObject("BackToolStripMenuItem.Image"), System.Drawing.Image)
         Me.BackToolStripMenuItem.Name = "BackToolStripMenuItem"
         Me.BackToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.BackToolStripMenuItem.Text = "Rewind"
@@ -249,7 +249,7 @@ Partial Class Form1
         'SpeedToolStripMenuItem
         '
         Me.SpeedToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NormalToolStripMenuItem, Me.X05ToolStripMenuItem, Me.X10ToolStripMenuItem, Me.X11ToolStripMenuItem, Me.X12ToolStripMenuItem, Me.X13ToolStripMenuItem, Me.X14ToolStripMenuItem, Me.X15ToolStripMenuItem, Me.X20ToolStripMenuItem})
-        Me.SpeedToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources._1454111347_time_24
+        Me.SpeedToolStripMenuItem.Image = CType(resources.GetObject("SpeedToolStripMenuItem.Image"), System.Drawing.Image)
         Me.SpeedToolStripMenuItem.Name = "SpeedToolStripMenuItem"
         Me.SpeedToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.SpeedToolStripMenuItem.Text = "Speed"
@@ -320,7 +320,7 @@ Partial Class Form1
         'LastPositionToolStripMenuItem
         '
         Me.LastPositionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AutoSaved, Me.ManSaved, Me.OnlineSavedToolStripMenuItem})
-        Me.LastPositionToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources._1454111374_save
+        Me.LastPositionToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources.savePNG
         Me.LastPositionToolStripMenuItem.Name = "LastPositionToolStripMenuItem"
         Me.LastPositionToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.LastPositionToolStripMenuItem.Text = "Saved Locations"
@@ -329,26 +329,26 @@ Partial Class Form1
         '
         Me.AutoSaved.Image = CType(resources.GetObject("AutoSaved.Image"), System.Drawing.Image)
         Me.AutoSaved.Name = "AutoSaved"
-        Me.AutoSaved.Size = New System.Drawing.Size(152, 22)
+        Me.AutoSaved.Size = New System.Drawing.Size(148, 22)
         Me.AutoSaved.Text = "Auto Saved"
         '
         'ManSaved
         '
         Me.ManSaved.Image = CType(resources.GetObject("ManSaved.Image"), System.Drawing.Image)
         Me.ManSaved.Name = "ManSaved"
-        Me.ManSaved.Size = New System.Drawing.Size(152, 22)
+        Me.ManSaved.Size = New System.Drawing.Size(148, 22)
         Me.ManSaved.Text = "Manual Saved"
         '
         'OnlineSavedToolStripMenuItem
         '
-        Me.OnlineSavedToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources._1454111374_save
+        Me.OnlineSavedToolStripMenuItem.Image = CType(resources.GetObject("OnlineSavedToolStripMenuItem.Image"), System.Drawing.Image)
         Me.OnlineSavedToolStripMenuItem.Name = "OnlineSavedToolStripMenuItem"
-        Me.OnlineSavedToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.OnlineSavedToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.OnlineSavedToolStripMenuItem.Text = "Online Saved"
         '
         'ManSaving
         '
-        Me.ManSaving.Image = Global.AudioBook.My.Resources.Resources._1454111428_downloads
+        Me.ManSaving.Image = Global.AudioBook.My.Resources.Resources.savePNG
         Me.ManSaving.Name = "ManSaving"
         Me.ManSaving.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.Space), System.Windows.Forms.Keys)
         Me.ManSaving.Size = New System.Drawing.Size(178, 22)
@@ -358,7 +358,7 @@ Partial Class Form1
         '
         Me.AutoSave.Enabled = False
         Me.AutoSave.ForeColor = System.Drawing.Color.Silver
-        Me.AutoSave.Image = Global.AudioBook.My.Resources.Resources._1454111454_spinner
+        Me.AutoSave.Image = Global.AudioBook.My.Resources.Resources.savingPNG
         Me.AutoSave.Name = "AutoSave"
         Me.AutoSave.Size = New System.Drawing.Size(178, 22)
         Me.AutoSave.Text = "Loading"
@@ -375,7 +375,7 @@ Partial Class Form1
         'ShutDownPcToolStripMenuItem
         '
         Me.ShutDownPcToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem2, Me.ToolStripMenuItem3, Me.ToolStripMenuItem4, Me.HourToolStripMenuItem, Me.HoursToolStripMenuItem, Me.HoursToolStripMenuItem1})
-        Me.ShutDownPcToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources._1454111513_power_button
+        Me.ShutDownPcToolStripMenuItem.Image = CType(resources.GetObject("ShutDownPcToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ShutDownPcToolStripMenuItem.Name = "ShutDownPcToolStripMenuItem"
         Me.ShutDownPcToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
         Me.ShutDownPcToolStripMenuItem.Text = "Shut Down Pc In"
@@ -426,7 +426,7 @@ Partial Class Form1
         'CloseAppToolStripMenuItem
         '
         Me.CloseAppToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MinToolStripMenuItem4, Me.MinToolStripMenuItem3, Me.MinToolStripMenuItem2, Me.HourToolStripMenuItem1, Me.HourToolStripMenuItem2, Me.HoursToolStripMenuItem2})
-        Me.CloseAppToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources._1454111513_power_button
+        Me.CloseAppToolStripMenuItem.Image = CType(resources.GetObject("CloseAppToolStripMenuItem.Image"), System.Drawing.Image)
         Me.CloseAppToolStripMenuItem.Name = "CloseAppToolStripMenuItem"
         Me.CloseAppToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
         Me.CloseAppToolStripMenuItem.Text = "Shut Down App In"
@@ -475,7 +475,7 @@ Partial Class Form1
         '
         'StopShutDownToolStripMenuItem
         '
-        Me.StopShutDownToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources._1454111563_cross_24
+        Me.StopShutDownToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources.clearPNG
         Me.StopShutDownToolStripMenuItem.Name = "StopShutDownToolStripMenuItem"
         Me.StopShutDownToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
         Me.StopShutDownToolStripMenuItem.Text = "Stop Auto Shut Down"

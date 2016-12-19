@@ -63,9 +63,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property _1454111105_play_circle_fill() As System.Drawing.Bitmap
+        Friend ReadOnly Property backwardPNG() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("1454111105_play-circle-fill", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("backwardPNG", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -73,9 +73,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property _1454111120_pause_circle_fill() As System.Drawing.Bitmap
+        Friend ReadOnly Property clearPNG() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("1454111120_pause-circle-fill", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("clearPNG", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -83,9 +83,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property _1454111136_206_CircledStop() As System.Drawing.Bitmap
+        Friend ReadOnly Property clockPNG() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("1454111136_206_CircledStop", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("clockPNG", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -93,9 +93,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property _1454111207_editor_open_folder_glyph() As System.Drawing.Bitmap
+        Friend ReadOnly Property folderPNG() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("1454111207_editor-open-folder-glyph", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("folderPNG", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -103,9 +103,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property _1454111257_icon_skip_forward() As System.Drawing.Bitmap
+        Friend ReadOnly Property forwardPNG() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("1454111257_icon-skip-forward", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("forwardPNG", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -113,9 +113,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property _1454111303_icon_skip_backward() As System.Drawing.Bitmap
+        Friend ReadOnly Property playPNG() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("1454111303_icon-skip-backward", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("playPNG", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -123,9 +123,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property _1454111347_time_24() As System.Drawing.Bitmap
+        Friend ReadOnly Property powerPNG2() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("1454111347_time-24", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("powerPNG2", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -133,9 +133,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property _1454111374_save() As System.Drawing.Bitmap
+        Friend ReadOnly Property puasePNG() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("1454111374_save", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("puasePNG", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -143,9 +143,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property _1454111428_downloads() As System.Drawing.Bitmap
+        Friend ReadOnly Property savePNG() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("1454111428_downloads", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("savePNG", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -153,9 +153,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property _1454111454_spinner() As System.Drawing.Bitmap
+        Friend ReadOnly Property savingPNG() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("1454111454_spinner", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("savingPNG", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -163,19 +163,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property _1454111513_power_button() As System.Drawing.Bitmap
+        Friend ReadOnly Property stopPNG() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("1454111513_power-button", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property _1454111563_cross_24() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("1454111563_cross-24", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("stopPNG", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

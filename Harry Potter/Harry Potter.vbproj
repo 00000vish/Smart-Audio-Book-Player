@@ -46,7 +46,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>1439694186_book_text_run.ico</ApplicationIcon>
+    <ApplicationIcon>book.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
@@ -106,9 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -144,19 +144,18 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="1439694186_book_text_run.ico" />
-    <None Include="Resources\1454111563_cross-24.ico" />
-    <None Include="Resources\1454111513_power-button.ico" />
-    <None Include="Resources\1454111454_spinner.ico" />
-    <None Include="Resources\1454111428_downloads.ico" />
-    <None Include="Resources\1454111374_save.ico" />
-    <None Include="Resources\1454111347_time-24.ico" />
-    <None Include="Resources\1454111303_icon-skip-backward.ico" />
-    <None Include="Resources\1454111257_icon-skip-forward.ico" />
-    <None Include="Resources\1454111207_editor-open-folder-glyph.ico" />
-    <None Include="Resources\1454111136_206_CircledStop.ico" />
-    <None Include="Resources\1454111120_pause-circle-fill.ico" />
-    <None Include="Resources\1454111105_play-circle-fill.ico" />
+    <Content Include="book.ico" />
+    <None Include="Resources\clockPNG.png" />
+    <None Include="Resources\puasePNG.png" />
+    <None Include="Resources\powerPNG2.png" />
+    <None Include="Resources\backwardPNG.png" />
+    <None Include="Resources\forwardPNG.png" />
+    <None Include="Resources\clearPNG.png" />
+    <None Include="Resources\savingPNG.png" />
+    <None Include="Resources\savePNG.png" />
+    <None Include="Resources\stopPNG.png" />
+    <None Include="Resources\playPNG.png" />
+    <None Include="Resources\folderPNG.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
