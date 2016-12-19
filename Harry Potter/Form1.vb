@@ -169,12 +169,14 @@ Public Class Form1
     Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click, ToolStripMenuItem3.Click, ToolStripMenuItem4.Click, HourToolStripMenuItem.Click, HoursToolStripMenuItem1.Click, HoursToolStripMenuItem.Click
         Dim STS As ToolStripMenuItem = CType(sender, ToolStripMenuItem)
         shutDown(Int(STS.Text.Replace("min", "").ToString) * 60000, True)
+        SleepToolStripMenuItem.BackColor = Color.Lime
     End Sub
 
     '################ SHUTDOWN APP ##############
     Private Sub MinToolStripMenuItem4_Click(sender As Object, e As EventArgs) Handles MinToolStripMenuItem4.Click, MinToolStripMenuItem3.Click, MinToolStripMenuItem2.Click, HourToolStripMenuItem1.Click, HourToolStripMenuItem2.Click, HoursToolStripMenuItem2.Click
         Dim STS As ToolStripMenuItem = CType(sender, ToolStripMenuItem)
         shutDown(Int(STS.Text.Replace("min", "").ToString) * 60000, False)
+        SleepToolStripMenuItem.BackColor = Color.Lime
     End Sub
 
     '############## STOP SHUTDOWNS ##############
