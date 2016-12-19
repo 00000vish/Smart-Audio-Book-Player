@@ -6,8 +6,8 @@ Public Class Form1
     Dim toUpload As String = ""
     Dim lastSave As String = ""
 
-    Dim onlineEnabled = True
-    Dim phpFileURL As String = "" 'URL for the php file. example : http://exmaple.com/AudioBookSync/post.php
+    Dim onlineEnabled = False
+    Dim phpFileURL As String = "YOUR URL HERE" 'URL for the php file. example : http://exmaple.com/AudioBookSync/post.php
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         setUpPlayer()
@@ -121,10 +121,9 @@ Public Class Form1
                 Dim client As WebClient = New WebClient()
                 Dim reader As StreamReader = New StreamReader(client.OpenRead(address))
                 Dim loc As String = reader.ReadToEnd
-                MsgBox(loc)
-                OnlineSavedToolStripMenuItem.Text = Convert.ToInt32(loc) & " Online Saved"
+                OnlineSavedToolStripMenuItem.Text = loc.ToString.Split(".")(0) & " Online Saved"
                 If (jump) Then
-                    AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = Convert.ToInt32(loc)
+                    AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = Convert.ToDouble(loc.ToString)
                 End If
             Catch ex As Exception
                 MsgBox(ex.ToString)
