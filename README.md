@@ -9,7 +9,7 @@ Also allows you to upload the saved location to your server (file hosting site) 
 
 (Video is outdated)
 
-#Set up online
+# Set up online
 
 Site recommend/used/tested on : https://en.altervista.org/
 
