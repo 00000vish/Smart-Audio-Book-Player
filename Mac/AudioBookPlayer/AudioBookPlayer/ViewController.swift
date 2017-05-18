@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  AudioBookPlayer
 //
-//  Created by Vishwa on 2017-04-30.
+//  Created by Vishwenga on 2017-04-30.
 //  Copyright © 2017 Vishwa. All rights reserved.
 //
 
@@ -14,51 +14,52 @@ class ViewController: NSViewController,NSWindowDelegate{
     var theUrl = "" //enter the server url here
     @IBOutlet weak var comboBox: NSComboBox!
     @IBOutlet weak var label2: NSTextField!
+    @IBOutlet weak var seeker: NSSlider!
     var safeUpdate = false
     var currentLoc = 5858585.0
     var audioPlayer = AVAudioPlayer()
     @IBOutlet weak var label1: NSTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //keep play time UI updated, timer1
         _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true);
-
-        // Do any additional setup after loading the view.
     }
 
     override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
+        didSet {}
     }
     
+    @IBAction func seekRightLeft(_ sender: Any) {
+        audioPlayer.currentTime = TimeInterval(seeker.intValue)
+    }
+    
+    //show select file diaglog
     @IBAction func browseFile(sender: AnyObject) {
-        
         let dialog = NSOpenPanel();
-        
-        dialog.title                   = "Choose a .txt file";
+        dialog.title                   = "Choose a Audiobook file";
         dialog.showsResizeIndicator    = true;
         dialog.showsHiddenFiles        = false;
         dialog.canChooseDirectories    = true;
         dialog.canCreateDirectories    = true;
         dialog.allowsMultipleSelection = false;
-        dialog.allowedFileTypes        = ["mp3"];
+        dialog.allowedFileTypes        = ["mp3","m4b"];
         
         if (dialog.runModal() == NSModalResponseOK) {
-            let result = dialog.url // Pathname of the file
-            
+            let result = dialog.url
             if (result != nil) {
                 let path = result!.path
                 let wtf = path.components(separatedBy: "/")[path.components(separatedBy: "/").count-1]
                 label1.stringValue = wtf
-                playSound(soundName: path)
+                setupPlayer(soundName: path)
             }
         } else {
-            // User clicked on "Cancel"
             return
         }
     }
     
-    func playSound(soundName: String)
+    //setup player
+    func setupPlayer(soundName: String)
     {
         let coinSound =  Bundle.main.url(forAuxiliaryExecutable: soundName)!
         do{
@@ -66,20 +67,28 @@ class ViewController: NSViewController,NSWindowDelegate{
             audioPlayer.prepareToPlay()
             audioPlayer.volume = 1
             safeUpdate = true
+            seeker.maxValue = audioPlayer.duration
         }catch {
             print("Error getting the audio file")
         }
     }
+    
+    //stop button
     @IBAction func stopAudio(_ sender: NSButton) {
         audioPlayer.stop()
     }
+    
+    //play button
     @IBAction func playAudio(_ sender: NSButton) {
         audioPlayer.play()
     }
+    
+    //pause button
     @IBAction func pauseAudio(_ sender: NSButton) {
         audioPlayer.pause()
     }
     
+    //get bookmark saved on server
     @IBAction func getSave(_ sender: NSButton) {
         let myURLString = theUrl + "/data.txt"
         guard let myURL = URL(string: myURLString) else {
@@ -96,6 +105,7 @@ class ViewController: NSViewController,NSWindowDelegate{
             print("Error: \(error)")
         }    }
 
+    //set cuurent bookmark to server
     @IBAction func setSave(_ sender: NSButton) {
         currentLoc = audioPlayer.currentTime
         let setupURL = theUrl + "/post.php?w=" + String(currentLoc)
@@ -106,6 +116,8 @@ class ViewController: NSViewController,NSWindowDelegate{
         }
         task.resume()
     }
+    
+    //set sleep timer
     @IBAction func comboBox(_ sender: NSComboBoxCell) {
         switch (comboBox.indexOfSelectedItem){
         case 0:
@@ -120,6 +132,8 @@ class ViewController: NSViewController,NSWindowDelegate{
         default: break
         }
     }
+    
+    //sleep timer
     func sleepTime() {
         let task = Process()
         task.launchPath = "/usr/bin/pmset"
@@ -128,15 +142,18 @@ class ViewController: NSViewController,NSWindowDelegate{
         exit(0)
     }
     
+    //timer1 update
     func update(){
         if (safeUpdate){
+            seeker.intValue = Int32(audioPlayer.currentTime)
             label2.stringValue = String(String(format: "%.2f",(audioPlayer.currentTime)/60)) + "/" + String(String(format: "%.2f",(audioPlayer.duration)/60)) + " mins"
         }
     }
+    
+    //exit on close functions
     override func viewDidAppear() {
         self.view.window?.delegate = self
     }
-    
     func windowShouldClose(_ sender: Any) {
         NSApplication.shared().terminate(self)
     }

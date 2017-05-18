@@ -782,6 +782,9 @@
                                 <rect key="frame" x="18" y="82" width="313" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <sliderCell key="cell" state="on" alignment="left" maxValue="100" tickMarkPosition="above" sliderType="linear" id="x9N-ph-SFc"/>
+                                <connections>
+                                    <action selector="seekRightLeft:" target="XfG-lQ-9wD" id="Rw6-UH-b6g"/>
+                                </connections>
                             </slider>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGh-bh-bnZ">
                                 <rect key="frame" x="335" y="84" width="115" height="17"/>
@@ -799,6 +802,7 @@
                         <outlet property="label1" destination="sMH-J7-AbZ" id="pGh-y7-H7P"/>
                         <outlet property="label2" destination="oGh-bh-bnZ" id="4jm-he-xnJ"/>
                         <outlet property="maxTime" destination="oGh-bh-bnZ" id="Aym-Xd-gnO"/>
+                        <outlet property="seeker" destination="GGm-rs-e5K" id="mE5-5a-ivR"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
