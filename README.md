@@ -4,14 +4,15 @@ Also allows you to upload the saved location to your server (file hosting site) 
 
 # Demonstration 
 
-Windows
+Windows:
 
 [![Video](http://i.imgur.com/KmCVlnU.png)](https://www.youtube.com/watch?v=w3NEF69L3js)
 
 `(Video is outdated)`
 
+----------------------------
 
-Mac
+Mac:
 
 ![Mac Port](http://i.imgur.com/9UsdAKi.png)
 
