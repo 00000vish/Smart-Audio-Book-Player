@@ -4,21 +4,25 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Resources/AppIcon.icns</key>
+		<data>
+		tgV+gDSuiJJTZ3Zd5FBbJ8CAkTw=
+		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/Info.plist</key>
 		<data>
-		x0E9Phij34vORFkWHl8/8yIwgcE=
+		si8Zba5h/FX+fM9MGJjfJ/JWsfo=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/MainMenu.nib</key>
 		<data>
-		5MpgkJZEaOfK+9CCRAEDrnMBgMc=
+		VTKwLSkQtTb5MH9RFLad30AW71o=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/NSWindowController-B8D-0N-5wS.nib</key>
 		<data>
-		sRCFSJ6iTdD4Sgw5WdWlgIHmBuo=
+		sqU4WGc25dWfsWgrRUOt2KFvy+g=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/XfG-lQ-9wD-view-m2S-Jp-Qdl.nib</key>
 		<data>
-		+O0NA5CgVPiKY5YGybMDIZNWvyI=
+		ctIM/ac9SV6kFWAgPDIoUZmjrZg=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -158,32 +162,39 @@
 			<key>requirement</key>
 			<string>cdhash H"0c96a46f148cc24648fa58aad9da4719d0134c2e" or cdhash H"a7139d28cdc38921491bcfdf81452980492b5332"</string>
 		</dict>
+		<key>Resources/AppIcon.icns</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			NVnFn8hWkdobwIAVOFxmvKUL9kJKwsY+gnoZXszdWTw=
+			</data>
+		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2g4nkRPjAjWMdonIbENr3OzGpB0q+HAWVIfpl93w3kU=
+			BF23MiZmAL1r7SFrtWBQTKCIibOPY/vr4RiI9JwN9IU=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/MainMenu.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UCbIiqcfh7bsRgb36a6qgSQg3R/2EwjE6LHirWptLkA=
+			d+E+HwGk9gpNg+0tVrh/kW/KLfxZ+j9v8DJZivtpKO4=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/NSWindowController-B8D-0N-5wS.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			OFZXOaKAxm4CD0uMQ4tHHqtWCdBYrFbfkMcy3wzvwCY=
+			X+EHsOIl5T0S768kYNCAMB89M5MI+ZsdAAYcHn/Pf2I=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/XfG-lQ-9wD-view-m2S-Jp-Qdl.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			c73g6jSBrhjj/Ldtd9Fqxi21eGWZrIo5n6qKNYcvK14=
+			vHD+xiY0gJMhbZnSKQ/+Ngm2ELWMdrQXCfSzgo32PWA=
 			</data>
 		</dict>
 	</dict>
