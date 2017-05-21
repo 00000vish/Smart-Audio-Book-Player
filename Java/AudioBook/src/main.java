@@ -1,4 +1,5 @@
 import java.awt.EventQueue;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -9,6 +10,7 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ItemListener;
@@ -114,6 +116,13 @@ public class main extends JFrame {
 		contentPane.add(btnNewButton_3);
 		
 		JButton btnNewButton_4 = new JButton("Goto Bookmark");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					ap.downloadFromServer();
+				} catch (Exception e1) {}
+			}
+		});
 		btnNewButton_4.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -124,6 +133,13 @@ public class main extends JFrame {
 		contentPane.add(btnNewButton_4);
 		
 		JButton btnNewButton_5 = new JButton("Set Bookmark");
+		btnNewButton_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					ap.uploadToSever();
+				} catch (Exception e) {}
+			}
+		});
 		btnNewButton_5.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
