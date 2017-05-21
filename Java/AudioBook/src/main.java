@@ -13,12 +13,15 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class main extends JFrame {
 
 	private JPanel contentPane;
-
+	private static Player ap =  new Player();
+	private static JFrame me;
 	/**
 	 * Launch the application.
 	 */
@@ -28,6 +31,7 @@ public class main extends JFrame {
 				try {
 					main frame = new main();
 					frame.setVisible(true);
+					me = frame;
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -46,15 +50,20 @@ public class main extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel_1 = new JLabel("0.00/0.00");
+		final JLabel lblNewLabel_1 = new JLabel("0.00/0.00");
 		lblNewLabel_1.setBounds(383, 63, 55, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel = new JLabel("Open Audiobook");
+		final JLabel lblNewLabel = new JLabel("Open Audiobook");
 		lblNewLabel.setBounds(20, 11, 316, 14);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Browse");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ap.openFileDialog(me,lblNewLabel);
+			}
+		});
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
