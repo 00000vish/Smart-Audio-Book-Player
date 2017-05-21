@@ -16,6 +16,15 @@ Mac:
 
 ![Mac Port](http://i.imgur.com/9UsdAKi.png)
 
+
+------------------------------
+
+
+Linux (Java)
+
+![Java](http://i.imgur.com/XWq4D4Q.png)
+
+
 # Set up online
 
 Site recommend/used/tested on : https://en.altervista.org/
