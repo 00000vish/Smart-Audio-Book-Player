@@ -14,7 +14,7 @@ Windows:
 
 Mac:
 
-![Mac Port](http://i.imgur.com/9UsdAKi.png)
+![Mac Port](http://i.imgur.com/lFwAURF.png)
 
 
 ------------------------------
