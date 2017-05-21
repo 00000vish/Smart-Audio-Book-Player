@@ -20,7 +20,7 @@ Mac:
 ------------------------------
 
 
-Linux (Java)
+Linux (Java):
 
 ![Java](http://i.imgur.com/XWq4D4Q.png)
 
