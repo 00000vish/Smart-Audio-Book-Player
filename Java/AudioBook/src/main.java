@@ -89,7 +89,7 @@ public class main extends JFrame {
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.out.println("d");
+				ap.stop();
 			}
 		});
 		btnNewButton_1.setBounds(82, 93, 89, 23);
@@ -99,7 +99,7 @@ public class main extends JFrame {
 		btnNewButton_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.out.println("d");
+				ap.play();
 			}
 		});
 		btnNewButton_2.setBounds(181, 93, 89, 23);
@@ -109,7 +109,7 @@ public class main extends JFrame {
 		btnNewButton_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.out.println("d");
+				ap.pause();
 			}
 		});
 		btnNewButton_3.setBounds(280, 93, 89, 23);
