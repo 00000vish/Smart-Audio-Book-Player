@@ -9,10 +9,12 @@ import java.net.URL;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JSlider;
 
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 
 public class Player {
 	private final JFXPanel fxPanel = new JFXPanel();
@@ -21,16 +23,23 @@ public class Player {
 	private static double currentLoc = 0;
 	private Media hit;
 	private MediaPlayer mediaPlayer;	
+	private JSlider slider;
+	private JLabel timeLabel;
 	
 	private void initPlayer(){
+		if(mediaPlayer != null)
+			mediaPlayer.dispose();
 		String bip = selectedFile;
 		System.out.println(bip.replace("\\","/"));
 		hit = new Media(new File(bip).toURI().toString());
-		mediaPlayer = new MediaPlayer(hit);		
+		mediaPlayer = new MediaPlayer(hit);
+		timeLabel.setText("Ready");
 	}
 	
-	protected void play(){
+	protected void play(){		
 		mediaPlayer.play();
+		slider.setMaximum((int)mediaPlayer.getTotalDuration().toSeconds());		
+		timeLabel.setText("0.00/" + String.valueOf(mediaPlayer.getTotalDuration().toMinutes()));
 	}
 	protected void stop(){
 		mediaPlayer.stop();
@@ -39,7 +48,7 @@ public class Player {
 		mediaPlayer.pause();
 	}
 	
-	protected void openFileDialog(JFrame hwn, JLabel label){
+	protected void openFileDialog(JFrame hwn, JLabel label, JSlider slder, JLabel time){
 		FileDialog fd = new FileDialog(hwn, "Choose a file", FileDialog.LOAD);
 		fd.setDirectory("C:\\");
 		fd.setFile("*.*");
@@ -48,6 +57,8 @@ public class Player {
 		if (fileName != null)
 		selectedFile = fd.getDirectory() + fileName;	
 		label.setText(fileName);
+		slider = slder;
+		timeLabel = time;
 		initPlayer();
 	}
 	
@@ -61,6 +72,12 @@ public class Player {
 
 		con.setRequestProperty("User-Agent", "Mozilla/5.0");
 		int responseCode = con.getResponseCode();	
+	}
+	
+	protected void jumpTo(int loc){
+		try{			
+			mediaPlayer.seek(new Duration(loc*1000));
+		}catch(Exception e){}		
 	}
 	
 	protected void downloadFromServer() throws Exception{

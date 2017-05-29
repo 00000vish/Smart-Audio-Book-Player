@@ -44,8 +44,11 @@ public class main extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public main() {
+	public main() {	
+		setTitle("Audio Book Player");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setResizable(false);		
+		
 		setBounds(100, 100, 461, 212);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -60,25 +63,10 @@ public class main extends JFrame {
 		lblNewLabel.setBounds(20, 11, 316, 14);
 		contentPane.add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("Browse");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				ap.openFileDialog(me,lblNewLabel);
-			}
-		});
-		btnNewButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				System.out.println("d");
-			}
-		});
-		btnNewButton.setBounds(346, 7, 89, 23);
-		contentPane.add(btnNewButton);
-		
-		JSlider slider = new JSlider();
+		final JSlider slider = new JSlider();
 		slider.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent arg0) {
-				System.out.println("d");
+				ap.jumpTo(slider.getValue());
 			}
 		});
 		slider.setValue(0);
@@ -155,6 +143,23 @@ public class main extends JFrame {
 				System.out.println("d");
 			}
 		});
+		
+		JButton btnNewButton = new JButton("Browse");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ap.openFileDialog(me,lblNewLabel, slider, lblNewLabel_1);
+			}
+		});
+		
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				System.out.println("d");
+			}
+		});
+		btnNewButton.setBounds(346, 7, 89, 23);
+		contentPane.add(btnNewButton);
+		
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Set Sleep Time", "Sleep in 30 mins", "Sleep in 1 hour", "Sleep in 2 hours"}));
 		comboBox.setBounds(309, 140, 126, 20);
 		contentPane.add(comboBox);
