@@ -3,7 +3,7 @@ Imports System.Net
 
 Public Class Form1
     '==================== FILL INFO ====================
-    Dim onlineEnabled = False  'Set it to TRUE to use online features
+    Dim onlineEnabled = True  'Set it to TRUE to use online features
     Dim phpFileURL As String = "" 'URL for the php file. example : http://exmaple.com/AudioBookSync/post.php
     '====================   ENDS   =====================
 
@@ -100,6 +100,14 @@ Public Class Form1
         End If
     End Sub
 
+    '################### SLEEP METHOD ############
+    Private Sub Snooze(ByVal seconds As Integer)
+        For i As Integer = 0 To seconds * 100
+            System.Threading.Thread.Sleep(10)
+            Application.DoEvents()
+        Next
+    End Sub
+
     '+++++++++++++++++++++++++++++++++++++++++++++++ ONLINE BOOKMARK '+++++++++++++++++++++++++++++++++++++++++++++++
 
     '############### UPLOAD TO SERVER ##############
@@ -107,8 +115,12 @@ Public Class Form1
         If (onlineEnabled = True) Then
             Try
                 If toUpload <> "" Then
-                    Dim request As WebRequest = WebRequest.Create(phpFileURL & "?w=" & toUpload)
-                    request.GetResponse()
+                    Dim web As New WebBrowser
+                    web.Navigate(phpFileURL & "?w=" & toUpload)
+                    While (Not web.ReadyState = WebBrowserReadyState.Complete)
+                        Snooze(1)
+                    End While
+                    web.Dispose()
                 End If
             Catch ex As Exception
             End Try
