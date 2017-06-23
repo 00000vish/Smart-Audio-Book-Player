@@ -132,10 +132,13 @@ Public Class Form1
     Private Sub getOnlineLocation(jump As Boolean)
         If (onlineEnabled) Then
             Try
-                Dim address As String = phpFileURL.Replace("post.php", "") + "data.txt"
-                Dim client As WebClient = New WebClient()
-                Dim reader As StreamReader = New StreamReader(client.OpenRead(address))
-                Dim loc As String = reader.ReadToEnd
+                Dim web As New WebBrowser
+                web.Navigate(phpFileURL.Replace("post.php", "") + "data.txt")
+                While (Not web.ReadyState = WebBrowserReadyState.Complete)
+                    Snooze(1)
+                End While
+                Dim loc As String = web.Document.Body.InnerText
+                web.Dispose()
                 OnlineSavedToolStripMenuItem.Text = loc.ToString.Split(".")(0) & " Online Saved"
                 If (jump) Then
                     AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = Convert.ToDouble(loc.ToString)
