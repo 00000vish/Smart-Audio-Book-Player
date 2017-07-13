@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports System.Net
+Imports System.Runtime.InteropServices
 
 Public Class Form1
     '==================== FILL INFO ====================
@@ -168,14 +169,8 @@ Public Class Form1
         End If
     End Sub
 
-    '################# REWIND #################
-    Private Sub SToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles SToolStripMenuItem.Click, SToolStripMenuItem1.Click, SToolStripMenuItem2.Click, SToolStripMenuItem6.Click, SToolStripMenuItem7.Click, MinToolStripMenuItem.Click
-        Dim STS As ToolStripMenuItem = CType(sender, ToolStripMenuItem)
-        AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition - Int(STS.Text.Replace("s", "").ToString)
-    End Sub
-
-    '################# FORWARD #################
-    Private Sub SToolStripMenuItem3_Click_1(sender As Object, e As EventArgs) Handles SToolStripMenuItem3.Click, SToolStripMenuItem4.Click, SToolStripMenuItem5.Click, SToolStripMenuItem8.Click, SToolStripMenuItem9.Click, MinToolStripMenuItem1.Click
+    '################# FORWARD/REWIND #################
+    Private Sub SToolStripMenuItem3_Click_1(sender As Object, e As EventArgs) Handles SToolStripMenuItem.Click, SToolStripMenuItem1.Click, SToolStripMenuItem2.Click, SToolStripMenuItem6.Click, SToolStripMenuItem7.Click, MinToolStripMenuItem.Click, SToolStripMenuItem3.Click, SToolStripMenuItem4.Click, SToolStripMenuItem5.Click, SToolStripMenuItem8.Click, SToolStripMenuItem9.Click, MinToolStripMenuItem1.Click
         Dim STS As ToolStripMenuItem = CType(sender, ToolStripMenuItem)
         AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition + Int(STS.Text.Replace("s", "").ToString)
     End Sub
@@ -236,5 +231,25 @@ Public Class Form1
     '########## JUMP TO AUTO ALT #############
     Private Sub LastPositionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LastPositionToolStripMenuItem.Click
         AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = My.Settings.lastAuTime
+    End Sub
+
+    '########### GET PLAY STOP KEYBOARD BUTTONS #########
+    <DllImport("USER32.DLL", EntryPoint:="GetAsyncKeyState", SetLastError:=True,
+    CharSet:=CharSet.Unicode, ExactSpelling:=True,
+    CallingConvention:=CallingConvention.StdCall)>
+    Public Shared Function getkey(ByVal Vkey As Integer) As Boolean
+    End Function
+
+    '########### CHECK FOR PLAY FORWARD AND REWIND KEY PRESSES ##########
+    Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick
+        If getkey(179) Then
+            PlayToolStripMenuItem.PerformClick()
+        End If
+        If getkey(177) Then
+            SToolStripMenuItem1.PerformClick()
+        End If
+        If getkey(176) Then
+            SToolStripMenuItem4.PerformClick()
+        End If
     End Sub
 End Class

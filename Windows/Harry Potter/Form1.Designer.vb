@@ -81,6 +81,7 @@ Partial Class Form1
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.AxWindowsMediaPlayer1 = New AxWMPLib.AxWindowsMediaPlayer()
+        Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip1.SuspendLayout()
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -111,7 +112,7 @@ Partial Class Form1
         '
         Me.OpenFileToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources.folderPNG
         Me.OpenFileToolStripMenuItem.Name = "OpenFileToolStripMenuItem"
-        Me.OpenFileToolStripMenuItem.Size = New System.Drawing.Size(160, 30)
+        Me.OpenFileToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
         Me.OpenFileToolStripMenuItem.Text = "Open File"
         '
         'ControlsToolStripMenuItem
@@ -125,14 +126,14 @@ Partial Class Form1
         '
         Me.PlayToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources.playPNG
         Me.PlayToolStripMenuItem.Name = "PlayToolStripMenuItem"
-        Me.PlayToolStripMenuItem.Size = New System.Drawing.Size(186, 30)
+        Me.PlayToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.PlayToolStripMenuItem.Text = "Play"
         '
         'StopToolStripMenuItem
         '
         Me.StopToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources.stopPNG
         Me.StopToolStripMenuItem.Name = "StopToolStripMenuItem"
-        Me.StopToolStripMenuItem.Size = New System.Drawing.Size(186, 30)
+        Me.StopToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.StopToolStripMenuItem.Text = "Stop"
         '
         'ForwardToolStripMenuItem
@@ -140,7 +141,7 @@ Partial Class Form1
         Me.ForwardToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SToolStripMenuItem3, Me.SToolStripMenuItem4, Me.SToolStripMenuItem5, Me.SToolStripMenuItem8, Me.SToolStripMenuItem9, Me.MinToolStripMenuItem1})
         Me.ForwardToolStripMenuItem.Image = CType(resources.GetObject("ForwardToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ForwardToolStripMenuItem.Name = "ForwardToolStripMenuItem"
-        Me.ForwardToolStripMenuItem.Size = New System.Drawing.Size(186, 30)
+        Me.ForwardToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.ForwardToolStripMenuItem.Text = "Forward"
         '
         'SToolStripMenuItem3
@@ -196,7 +197,7 @@ Partial Class Form1
         Me.BackToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SToolStripMenuItem, Me.SToolStripMenuItem1, Me.SToolStripMenuItem2, Me.SToolStripMenuItem6, Me.SToolStripMenuItem7, Me.MinToolStripMenuItem})
         Me.BackToolStripMenuItem.Image = CType(resources.GetObject("BackToolStripMenuItem.Image"), System.Drawing.Image)
         Me.BackToolStripMenuItem.Name = "BackToolStripMenuItem"
-        Me.BackToolStripMenuItem.Size = New System.Drawing.Size(186, 30)
+        Me.BackToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.BackToolStripMenuItem.Text = "Rewind"
         '
         'SToolStripMenuItem
@@ -252,7 +253,7 @@ Partial Class Form1
         Me.SpeedToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NormalToolStripMenuItem, Me.X05ToolStripMenuItem, Me.X10ToolStripMenuItem, Me.X11ToolStripMenuItem, Me.X12ToolStripMenuItem, Me.X13ToolStripMenuItem, Me.X14ToolStripMenuItem, Me.X15ToolStripMenuItem, Me.X20ToolStripMenuItem})
         Me.SpeedToolStripMenuItem.Image = CType(resources.GetObject("SpeedToolStripMenuItem.Image"), System.Drawing.Image)
         Me.SpeedToolStripMenuItem.Name = "SpeedToolStripMenuItem"
-        Me.SpeedToolStripMenuItem.Size = New System.Drawing.Size(186, 30)
+        Me.SpeedToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.SpeedToolStripMenuItem.Text = "Speed"
         '
         'NormalToolStripMenuItem
@@ -323,28 +324,28 @@ Partial Class Form1
         Me.LastPositionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AutoSaved, Me.ManSaved, Me.OnlineSavedToolStripMenuItem})
         Me.LastPositionToolStripMenuItem.Image = CType(resources.GetObject("LastPositionToolStripMenuItem.Image"), System.Drawing.Image)
         Me.LastPositionToolStripMenuItem.Name = "LastPositionToolStripMenuItem"
-        Me.LastPositionToolStripMenuItem.Size = New System.Drawing.Size(186, 30)
+        Me.LastPositionToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.LastPositionToolStripMenuItem.Text = "Saved Locations"
         '
         'AutoSaved
         '
         Me.AutoSaved.Image = CType(resources.GetObject("AutoSaved.Image"), System.Drawing.Image)
         Me.AutoSaved.Name = "AutoSaved"
-        Me.AutoSaved.Size = New System.Drawing.Size(160, 30)
+        Me.AutoSaved.Size = New System.Drawing.Size(148, 22)
         Me.AutoSaved.Text = "Auto Saved"
         '
         'ManSaved
         '
         Me.ManSaved.Image = CType(resources.GetObject("ManSaved.Image"), System.Drawing.Image)
         Me.ManSaved.Name = "ManSaved"
-        Me.ManSaved.Size = New System.Drawing.Size(160, 30)
+        Me.ManSaved.Size = New System.Drawing.Size(148, 22)
         Me.ManSaved.Text = "Manual Saved"
         '
         'OnlineSavedToolStripMenuItem
         '
         Me.OnlineSavedToolStripMenuItem.Image = CType(resources.GetObject("OnlineSavedToolStripMenuItem.Image"), System.Drawing.Image)
         Me.OnlineSavedToolStripMenuItem.Name = "OnlineSavedToolStripMenuItem"
-        Me.OnlineSavedToolStripMenuItem.Size = New System.Drawing.Size(160, 30)
+        Me.OnlineSavedToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.OnlineSavedToolStripMenuItem.Text = "Online Saved"
         '
         'ManSaving
@@ -352,7 +353,7 @@ Partial Class Form1
         Me.ManSaving.Image = Global.AudioBook.My.Resources.Resources.savePNG
         Me.ManSaving.Name = "ManSaving"
         Me.ManSaving.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.Space), System.Windows.Forms.Keys)
-        Me.ManSaving.Size = New System.Drawing.Size(186, 30)
+        Me.ManSaving.Size = New System.Drawing.Size(178, 22)
         Me.ManSaving.Text = "Loading"
         '
         'AutoSave
@@ -361,7 +362,7 @@ Partial Class Form1
         Me.AutoSave.ForeColor = System.Drawing.Color.Silver
         Me.AutoSave.Image = Global.AudioBook.My.Resources.Resources.savingPNG
         Me.AutoSave.Name = "AutoSave"
-        Me.AutoSave.Size = New System.Drawing.Size(186, 30)
+        Me.AutoSave.Size = New System.Drawing.Size(178, 22)
         Me.AutoSave.Text = "Loading"
         '
         'SleepToolStripMenuItem
@@ -378,7 +379,7 @@ Partial Class Form1
         Me.ShutDownPcToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem2, Me.ToolStripMenuItem3, Me.ToolStripMenuItem4, Me.HourToolStripMenuItem, Me.HoursToolStripMenuItem, Me.HoursToolStripMenuItem1})
         Me.ShutDownPcToolStripMenuItem.Image = CType(resources.GetObject("ShutDownPcToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ShutDownPcToolStripMenuItem.Name = "ShutDownPcToolStripMenuItem"
-        Me.ShutDownPcToolStripMenuItem.Size = New System.Drawing.Size(196, 30)
+        Me.ShutDownPcToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
         Me.ShutDownPcToolStripMenuItem.Text = "Shut Down Pc In"
         Me.ShutDownPcToolStripMenuItem.ToolTipText = "Please run this program as admin to get this working."
         '
@@ -386,42 +387,42 @@ Partial Class Form1
         '
         Me.ToolStripMenuItem2.Image = CType(resources.GetObject("ToolStripMenuItem2.Image"), System.Drawing.Image)
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(160, 30)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(116, 22)
         Me.ToolStripMenuItem2.Text = "15 min"
         '
         'ToolStripMenuItem3
         '
         Me.ToolStripMenuItem3.Image = CType(resources.GetObject("ToolStripMenuItem3.Image"), System.Drawing.Image)
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(160, 30)
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(116, 22)
         Me.ToolStripMenuItem3.Text = "20 min"
         '
         'ToolStripMenuItem4
         '
         Me.ToolStripMenuItem4.Image = CType(resources.GetObject("ToolStripMenuItem4.Image"), System.Drawing.Image)
         Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(160, 30)
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(116, 22)
         Me.ToolStripMenuItem4.Text = "30 min"
         '
         'HourToolStripMenuItem
         '
         Me.HourToolStripMenuItem.Image = CType(resources.GetObject("HourToolStripMenuItem.Image"), System.Drawing.Image)
         Me.HourToolStripMenuItem.Name = "HourToolStripMenuItem"
-        Me.HourToolStripMenuItem.Size = New System.Drawing.Size(160, 30)
+        Me.HourToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.HourToolStripMenuItem.Text = "60 min"
         '
         'HoursToolStripMenuItem
         '
         Me.HoursToolStripMenuItem.Image = CType(resources.GetObject("HoursToolStripMenuItem.Image"), System.Drawing.Image)
         Me.HoursToolStripMenuItem.Name = "HoursToolStripMenuItem"
-        Me.HoursToolStripMenuItem.Size = New System.Drawing.Size(160, 30)
+        Me.HoursToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.HoursToolStripMenuItem.Text = "120 min"
         '
         'HoursToolStripMenuItem1
         '
         Me.HoursToolStripMenuItem1.Image = CType(resources.GetObject("HoursToolStripMenuItem1.Image"), System.Drawing.Image)
         Me.HoursToolStripMenuItem1.Name = "HoursToolStripMenuItem1"
-        Me.HoursToolStripMenuItem1.Size = New System.Drawing.Size(160, 30)
+        Me.HoursToolStripMenuItem1.Size = New System.Drawing.Size(116, 22)
         Me.HoursToolStripMenuItem1.Text = "180 min"
         '
         'CloseAppToolStripMenuItem
@@ -429,56 +430,56 @@ Partial Class Form1
         Me.CloseAppToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MinToolStripMenuItem4, Me.MinToolStripMenuItem3, Me.MinToolStripMenuItem2, Me.HourToolStripMenuItem1, Me.HourToolStripMenuItem2, Me.HoursToolStripMenuItem2})
         Me.CloseAppToolStripMenuItem.Image = CType(resources.GetObject("CloseAppToolStripMenuItem.Image"), System.Drawing.Image)
         Me.CloseAppToolStripMenuItem.Name = "CloseAppToolStripMenuItem"
-        Me.CloseAppToolStripMenuItem.Size = New System.Drawing.Size(196, 30)
+        Me.CloseAppToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
         Me.CloseAppToolStripMenuItem.Text = "Shut Down App In"
         '
         'MinToolStripMenuItem4
         '
         Me.MinToolStripMenuItem4.Image = CType(resources.GetObject("MinToolStripMenuItem4.Image"), System.Drawing.Image)
         Me.MinToolStripMenuItem4.Name = "MinToolStripMenuItem4"
-        Me.MinToolStripMenuItem4.Size = New System.Drawing.Size(160, 30)
+        Me.MinToolStripMenuItem4.Size = New System.Drawing.Size(116, 22)
         Me.MinToolStripMenuItem4.Text = "15 min"
         '
         'MinToolStripMenuItem3
         '
         Me.MinToolStripMenuItem3.Image = CType(resources.GetObject("MinToolStripMenuItem3.Image"), System.Drawing.Image)
         Me.MinToolStripMenuItem3.Name = "MinToolStripMenuItem3"
-        Me.MinToolStripMenuItem3.Size = New System.Drawing.Size(160, 30)
+        Me.MinToolStripMenuItem3.Size = New System.Drawing.Size(116, 22)
         Me.MinToolStripMenuItem3.Text = "20 min"
         '
         'MinToolStripMenuItem2
         '
         Me.MinToolStripMenuItem2.Image = CType(resources.GetObject("MinToolStripMenuItem2.Image"), System.Drawing.Image)
         Me.MinToolStripMenuItem2.Name = "MinToolStripMenuItem2"
-        Me.MinToolStripMenuItem2.Size = New System.Drawing.Size(160, 30)
+        Me.MinToolStripMenuItem2.Size = New System.Drawing.Size(116, 22)
         Me.MinToolStripMenuItem2.Text = "30 min"
         '
         'HourToolStripMenuItem1
         '
         Me.HourToolStripMenuItem1.Image = CType(resources.GetObject("HourToolStripMenuItem1.Image"), System.Drawing.Image)
         Me.HourToolStripMenuItem1.Name = "HourToolStripMenuItem1"
-        Me.HourToolStripMenuItem1.Size = New System.Drawing.Size(160, 30)
+        Me.HourToolStripMenuItem1.Size = New System.Drawing.Size(116, 22)
         Me.HourToolStripMenuItem1.Text = "60 min"
         '
         'HourToolStripMenuItem2
         '
         Me.HourToolStripMenuItem2.Image = CType(resources.GetObject("HourToolStripMenuItem2.Image"), System.Drawing.Image)
         Me.HourToolStripMenuItem2.Name = "HourToolStripMenuItem2"
-        Me.HourToolStripMenuItem2.Size = New System.Drawing.Size(160, 30)
+        Me.HourToolStripMenuItem2.Size = New System.Drawing.Size(116, 22)
         Me.HourToolStripMenuItem2.Text = "120 min"
         '
         'HoursToolStripMenuItem2
         '
         Me.HoursToolStripMenuItem2.Image = CType(resources.GetObject("HoursToolStripMenuItem2.Image"), System.Drawing.Image)
         Me.HoursToolStripMenuItem2.Name = "HoursToolStripMenuItem2"
-        Me.HoursToolStripMenuItem2.Size = New System.Drawing.Size(160, 30)
+        Me.HoursToolStripMenuItem2.Size = New System.Drawing.Size(116, 22)
         Me.HoursToolStripMenuItem2.Text = "180 min"
         '
         'StopShutDownToolStripMenuItem
         '
         Me.StopShutDownToolStripMenuItem.Image = Global.AudioBook.My.Resources.Resources.clearPNG
         Me.StopShutDownToolStripMenuItem.Name = "StopShutDownToolStripMenuItem"
-        Me.StopShutDownToolStripMenuItem.Size = New System.Drawing.Size(196, 30)
+        Me.StopShutDownToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
         Me.StopShutDownToolStripMenuItem.Text = "Stop Auto Shut Down"
         '
         'Timer2
@@ -498,6 +499,11 @@ Partial Class Form1
         Me.AxWindowsMediaPlayer1.OcxState = CType(resources.GetObject("AxWindowsMediaPlayer1.OcxState"), System.Windows.Forms.AxHost.State)
         Me.AxWindowsMediaPlayer1.Size = New System.Drawing.Size(292, 237)
         Me.AxWindowsMediaPlayer1.TabIndex = 0
+        '
+        'Timer4
+        '
+        Me.Timer4.Enabled = True
+        Me.Timer4.Interval = 700
         '
         'Form1
         '
@@ -575,4 +581,5 @@ Partial Class Form1
     Friend WithEvents HoursToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents Timer3 As Timer
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
+    Friend WithEvents Timer4 As Timer
 End Class
