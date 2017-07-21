@@ -24,7 +24,7 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.GUIAUTOSAVE = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenFileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -77,19 +77,19 @@ Partial Class Form1
         Me.HourToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.HoursToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.StopShutDownToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
-        Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
+        Me.SHUTDOWNTIMER = New System.Windows.Forms.Timer(Me.components)
+        Me.REMOTE = New System.Windows.Forms.Timer(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.AxWindowsMediaPlayer1 = New AxWMPLib.AxWindowsMediaPlayer()
-        Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
+        Me.MEDIABUTTON = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip1.SuspendLayout()
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Timer1
+        'GUIAUTOSAVE
         '
-        Me.Timer1.Enabled = True
-        Me.Timer1.Interval = 1000
+        Me.GUIAUTOSAVE.Enabled = True
+        Me.GUIAUTOSAVE.Interval = 1000
         '
         'MenuStrip1
         '
@@ -482,7 +482,10 @@ Partial Class Form1
         Me.StopShutDownToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
         Me.StopShutDownToolStripMenuItem.Text = "Stop Auto Shut Down"
         '
-        'Timer2
+        'SHUTDOWNTIMER
+        '
+        '
+        'REMOTE
         '
         '
         'ToolTip1
@@ -500,10 +503,10 @@ Partial Class Form1
         Me.AxWindowsMediaPlayer1.Size = New System.Drawing.Size(292, 237)
         Me.AxWindowsMediaPlayer1.TabIndex = 0
         '
-        'Timer4
+        'MEDIABUTTON
         '
-        Me.Timer4.Enabled = True
-        Me.Timer4.Interval = 700
+        Me.MEDIABUTTON.Enabled = True
+        Me.MEDIABUTTON.Interval = 700
         '
         'Form1
         '
@@ -525,7 +528,7 @@ Partial Class Form1
     End Sub
 
     Friend WithEvents AxWindowsMediaPlayer1 As AxWMPLib.AxWindowsMediaPlayer
-    Friend WithEvents Timer1 As Timer
+    Friend WithEvents GUIAUTOSAVE As Timer
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OpenFileToolStripMenuItem As ToolStripMenuItem
@@ -545,7 +548,7 @@ Partial Class Form1
     Friend WithEvents HourToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HoursToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HoursToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents Timer2 As Timer
+    Friend WithEvents SHUTDOWNTIMER As Timer
     Friend WithEvents ForwardToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SToolStripMenuItem3 As ToolStripMenuItem
     Friend WithEvents SToolStripMenuItem4 As ToolStripMenuItem
@@ -579,7 +582,7 @@ Partial Class Form1
     Friend WithEvents HourToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents HourToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents HoursToolStripMenuItem2 As ToolStripMenuItem
-    Friend WithEvents Timer3 As Timer
+    Friend WithEvents REMOTE As Timer
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
-    Friend WithEvents Timer4 As Timer
+    Friend WithEvents MEDIABUTTON As Timer
 End Class

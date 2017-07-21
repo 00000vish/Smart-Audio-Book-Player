@@ -4,10 +4,11 @@ Imports System.Runtime.InteropServices
 
 Public Class Form1
     '==================== FILL INFO ====================
-    Dim onlineEnabled = True  'Set it to TRUE to use online features
+    Dim onlineEnabled = False  'Set it to TRUE to use online features
     Dim phpFileURL As String = "" 'URL for the php file. example : http://exmaple.com/AudioBookSync/post.php
     '====================   ENDS   =====================
 
+    Dim remoteWeb As New WebBrowser
 
     Dim shutDownPc As Boolean = False
     Dim toUpload As String = ""
@@ -16,6 +17,7 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         setUpPlayer()
         getOnlineLocation(False)
+        setupRemote()
     End Sub
 
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -27,6 +29,19 @@ Public Class Form1
     End Sub
 
     '+++++++++++++++++++++++++++++++++++++++++++++++ OTHER FUNCTIONS +++++++++++++++++++++++++++++++++++++++++++++++
+
+    '################ check if remote has be activated ############
+    Private Sub setupRemote()
+        remoteWeb.Navigate(phpFileURL.Replace("post.php", "") + "remote.php?w=0 0")
+        While (Not remoteWeb.ReadyState = WebBrowserReadyState.Complete)
+            Snooze(1)
+        End While
+        remoteWeb.Navigate(phpFileURL.Replace("post.php", "") + "ping.txt")
+        remoteWeb.Tag = 0
+        REMOTE.Interval = 2000
+        REMOTE.Enabled = True
+        REMOTE.Start()
+    End Sub
 
     '################# OPEN FILE #################
     Private Sub OpenFileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenFileToolStripMenuItem.Click
@@ -42,7 +57,7 @@ Public Class Form1
     End Sub
 
     '########################## UPDATES GUI AND AUTO SAVE ####################
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles GUIAUTOSAVE.Tick
         ManSaved.Text = My.Settings.lastManTime.ToString.Split(".")(0) + "s Manual Saved"
         ManSaving.Text = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition.ToString.Split(".")(0) + "s Save"
         AutoSave.Text = AxWindowsMediaPlayer1.Ctlcontrols.currentPosition.ToString.Split(".")(0) + "s AUTO SAVING"
@@ -84,12 +99,12 @@ Public Class Form1
     '############### SHUTDOWN PC ###############
     Private Sub shutDown(tome As Integer, pc As Boolean)
         shutDownPc = pc
-        Timer2.Interval = tome
-        Timer2.Start()
+        SHUTDOWNTIMER.Interval = tome
+        SHUTDOWNTIMER.Start()
     End Sub
 
     '############# SHUT DOWN PC TIMER ###########
-    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles SHUTDOWNTIMER.Tick
         Try
             upload()
         Catch ex As Exception
@@ -241,7 +256,7 @@ Public Class Form1
     End Function
 
     '########### CHECK FOR PLAY FORWARD AND REWIND KEY PRESSES ##########
-    Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick
+    Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles MEDIABUTTON.Tick
         If getkey(179) Then
             PlayToolStripMenuItem.PerformClick()
         End If
@@ -251,5 +266,21 @@ Public Class Form1
         If getkey(176) Then
             SToolStripMenuItem4.PerformClick()
         End If
+    End Sub
+
+    '############ check for remote updates #################
+    Private Sub REMOTE_Tick(sender As Object, e As EventArgs) Handles REMOTE.Tick
+        Dim loc As String() = remoteWeb.Document.Body.InnerText.Split(" ")
+        If loc(1) = remoteWeb.Tag Then
+            Select Case loc(0)
+                Case 1
+                    PlayToolStripMenuItem.PerformClick()
+                Case 2
+                    StopToolStripMenuItem.PerformClick()
+                Case 2
+                    ManSaving.PerformClick()
+            End Select
+        End If
+        remoteWeb.Refresh()
     End Sub
 End Class
