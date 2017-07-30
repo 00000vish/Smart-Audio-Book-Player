@@ -32,12 +32,10 @@ Public Class Form1
     '################ check if remote has be activated ############
     Private Sub setupRemote()
         Dim remoteWeb As New WebBrowser
-        remoteWeb.Navigate(phpFileURL.Replace("post.php", "") + "ping.txt")
+        remoteWeb.Navigate(phpFileURL.Replace("post.php", "") + "reset.php?w=0 0")
         While (Not remoteWeb.ReadyState = WebBrowserReadyState.Complete)
             Snooze(1)
         End While
-        Dim loc As String() = remoteWeb.Document.Body.InnerText.Split(" ")
-        remoteSwitch = loc(1)
         REMOTE.Interval = 2000
         REMOTE.Enabled = True
         REMOTE.Start()
