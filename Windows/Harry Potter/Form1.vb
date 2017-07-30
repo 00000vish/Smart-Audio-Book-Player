@@ -8,11 +8,10 @@ Public Class Form1
     Dim phpFileURL As String = "" 'URL for the php file. example : http://exmaple.com/AudioBookSync/post.php
     '====================   ENDS   =====================
 
-    Dim remoteWeb As New WebBrowser
-
     Dim shutDownPc As Boolean = False
     Dim toUpload As String = ""
     Dim lastSave As String = ""
+    Dim remoteSwitch As Integer = 0
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         setUpPlayer()
@@ -32,11 +31,11 @@ Public Class Form1
 
     '################ check if remote has be activated ############
     Private Sub setupRemote()
+        Dim remoteWeb As New WebBrowser
         remoteWeb.Navigate(phpFileURL.Replace("post.php", "") + "remote.php?w=0 0")
         While (Not remoteWeb.ReadyState = WebBrowserReadyState.Complete)
             Snooze(1)
         End While
-        remoteWeb.Navigate(phpFileURL.Replace("post.php", "") + "ping.txt")
         remoteWeb.Tag = 0
         REMOTE.Interval = 2000
         REMOTE.Enabled = True
@@ -268,19 +267,35 @@ Public Class Form1
         End If
     End Sub
 
-    '############ check for remote updates #################
+
+
+    '############ check for remote updates ################# TODO: clean up
     Private Sub REMOTE_Tick(sender As Object, e As EventArgs) Handles REMOTE.Tick
-        Dim loc As String() = remoteWeb.Document.Body.InnerText.Split(" ")
-        If loc(1) = remoteWeb.Tag Then
-            Select Case loc(0)
-                Case 1
-                    PlayToolStripMenuItem.PerformClick()
-                Case 2
-                    StopToolStripMenuItem.PerformClick()
-                Case 2
-                    ManSaving.PerformClick()
-            End Select
-        End If
-        remoteWeb.Refresh()
+        Try
+            Dim remoteWeb As New WebBrowser
+            remoteWeb.Navigate(phpFileURL.Replace("post.php", "") + "ping.txt")
+            While (Not remoteWeb.ReadyState = WebBrowserReadyState.Complete)
+                Snooze(1)
+            End While
+            Dim loc As String() = remoteWeb.Document.Body.InnerText.Split(" ")
+
+            If loc(1).ToString <> remoteSwitch Then
+                remoteSwitch = loc(1)
+                Select Case Int(loc(0))
+                    Case 1
+                        PlayToolStripMenuItem.PerformClick()
+                    Case 2
+                        PlayToolStripMenuItem.PerformClick()
+                    Case 3
+                        ManSaving.PerformClick()
+                    Case 4
+                        MinToolStripMenuItem2.PerformClick()
+                End Select
+
+            End If
+            remoteWeb.Dispose()
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
     End Sub
 End Class
