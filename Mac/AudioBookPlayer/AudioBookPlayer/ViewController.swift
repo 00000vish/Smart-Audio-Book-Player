@@ -18,12 +18,15 @@ class ViewController: NSViewController,NSWindowDelegate{
     var safeUpdate = false
     var currentLoc = 5858585.0
     var audioPlayer = AVAudioPlayer()
+    var remoteSwitch = ""
     @IBOutlet weak var label1: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupRemote()
         //keep play time UI updated, timer1
         _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true);
+        _ = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.remoteCheck), userInfo: nil, repeats: true);
     }
 
     override var representedObject: Any? {
@@ -103,10 +106,15 @@ class ViewController: NSViewController,NSWindowDelegate{
             audioPlayer.currentTime = currentLoc
         } catch let error {
             print("Error: \(error)")
-        }    }
+        }
+    }
 
     //set cuurent bookmark to server
     @IBAction func setSave(_ sender: NSButton) {
+        setSaveFunc()
+    }
+    
+    func setSaveFunc(){
         currentLoc = audioPlayer.currentTime
         let setupURL = theUrl + "/post.php?w=" + String(currentLoc)
         let url = URL(string: setupURL)
@@ -147,6 +155,53 @@ class ViewController: NSViewController,NSWindowDelegate{
         if (safeUpdate){
             seeker.intValue = Int32(audioPlayer.currentTime)
             label2.stringValue = String(String(format: "%.2f",(audioPlayer.currentTime)/60)) + "/" + String(String(format: "%.2f",(audioPlayer.duration)/60)) + " mins"
+        }
+        remoteCheck()
+    }
+    
+    func setupRemote(){
+        let myURLString = theUrl + "/ping.txt"
+        guard let myURL = URL(string: myURLString) else {
+            print("Error: \(myURLString) doesn't seem to be a valid URL")
+            return
+        }
+        
+        do {
+            let myHTMLString = try String(contentsOf: myURL, encoding: .ascii)
+            let remoteData = myHTMLString.characters.split{$0 == " "}.map(String.init)
+            remoteSwitch = remoteData[1]
+        } catch let error {
+            print("Error: \(error)")
+        }
+    }
+    
+    func remoteCheck(){
+        let myURLString = theUrl + "/ping.txt"
+        guard let myURL = URL(string: myURLString) else {
+            print("Error: \(myURLString) doesn't seem to be a valid URL")
+            return
+        }
+        
+        do {
+            let myHTMLString = try String(contentsOf: myURL, encoding: .ascii)
+            let remoteData = myHTMLString.characters.split{$0 == " "}.map(String.init)
+
+            if( remoteData[1] != remoteSwitch){
+                switch Int(remoteData[0])!{
+                case 1: audioPlayer.play()
+                    
+                case 2: audioPlayer.pause()
+                    
+                case 3: setSaveFunc()
+                    
+                case 4: print("sleep")
+                    
+                default: break;
+                }
+                remoteSwitch = remoteData[1]
+            }
+        } catch let error {
+            print("Error: \(error)")
         }
     }
     
