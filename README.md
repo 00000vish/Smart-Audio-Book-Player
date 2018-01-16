@@ -34,7 +34,7 @@ Linux (Java):
 
 # Set up online
 
-Recommend localhost, but if your looking for a web server, i recommend/used/tested on : https://en.altervista.org/
+Recommend localhost, but if your looking for a online service, i recommend/used/tested on : https://en.altervista.org/
 
 Upload the server files to the filemanager. And update `index.js` according to your domain and update `Form1.vb` code to:
 
@@ -47,5 +47,11 @@ Upload the server files to the filemanager. And update `index.js` according to y
 ------------------------------
 
 
+# Remort Control
 
+This only works with Windows and Mac port so far.
+
+![remote](https://i.imgur.com/gH0PwuK.jpg)
+
+Look up the `index.html` hosted on your server on your phone and it should work right away. :)
 
