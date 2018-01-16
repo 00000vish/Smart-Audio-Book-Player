@@ -4,13 +4,11 @@ Also allows you to upload the saved location to your server (file hosting site) 
 
 ALSO can be controlled by Phone (only windows and mac port).
 
-# Demonstration 
+# Ports 
 
 Windows:
 
 [![Video](http://i.imgur.com/KmCVlnU.png)](https://www.youtube.com/watch?v=w3NEF69L3js)
-
-`(Video is outdated)`
 
 *If your having trouble getting saved location from website make sure you change your internet properties to this*
 
