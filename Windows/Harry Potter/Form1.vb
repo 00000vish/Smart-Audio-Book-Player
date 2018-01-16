@@ -5,7 +5,7 @@ Imports System.Runtime.InteropServices
 Public Class Form1
     '==================== FILL INFO ====================
     Dim onlineEnabled = False  'Set it to TRUE to use online features
-    Dim phpFileURL As String = "" 'URL for the php file. example : http://exmaple.com/AudioBookSync/post.php
+    Dim phpFileURL As String = "YOUR URL HERE" 'URL for the php file. example : http://exmaple.com/AudioBookSync/post.php
     '====================   ENDS   =====================
 
     Dim shutDownPc As Boolean = False
