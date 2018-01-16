@@ -51,7 +51,7 @@ Upload the server files to the filemanager. And update `index.js` according to y
 
 This only works with Windows and Mac port so far.
 
-![remote](https://i.imgur.com/gH0PwuK.jpg)
+![remote](https://i.imgur.com/gH0PwuK.jpg?)
 
 Look up the `index.html` hosted on your server on your phone and it should work right away. :)
 
