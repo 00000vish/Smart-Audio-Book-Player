@@ -22,7 +22,6 @@ Public Class Form1
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Try
             My.Settings.Save()
-            upload()
         Catch ex As Exception
         End Try
     End Sub
@@ -103,10 +102,6 @@ Public Class Form1
 
     '############# SHUT DOWN PC TIMER ###########
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles SHUTDOWNTIMER.Tick
-        Try
-            upload()
-        Catch ex As Exception
-        End Try
         If (shutDownPc) Then
             System.Diagnostics.Process.Start("shutdown", "-s -t 00")
         Else
@@ -159,6 +154,40 @@ Public Class Form1
                 End If
             Catch ex As Exception
             End Try
+        End If
+    End Sub
+
+    '############ check for remote updates #################
+    Private Sub REMOTE_Tick(sender As Object, e As EventArgs) Handles REMOTE.Tick
+        If onlineEnabled Then
+            Try
+                Dim remoteWeb As New WebBrowser
+                remoteWeb.Navigate(phpFileURL.Replace("post.php", "") + "ping.txt")
+                While (Not remoteWeb.ReadyState = WebBrowserReadyState.Complete)
+                    Snooze(1)
+                End While
+                Dim loc As String() = remoteWeb.Document.Body.InnerText.Split(" ")
+
+                If loc(1).ToString <> remoteSwitch Then
+                    remoteSwitch = loc(1)
+                    Select Case Int(loc(0))
+                        Case 1
+                            PlayToolStripMenuItem.PerformClick()
+                        Case 2
+                            PlayToolStripMenuItem.PerformClick()
+                        Case 3
+                            ManSaving.PerformClick()
+                        Case 4
+                            MinToolStripMenuItem2.PerformClick()
+                    End Select
+
+                End If
+                remoteWeb.Dispose()
+            Catch ex As Exception
+                MsgBox(ex.ToString)
+            End Try
+        Else
+            REMOTE.Stop()
         End If
     End Sub
 
@@ -264,37 +293,5 @@ Public Class Form1
         If getkey(176) Then
             SToolStripMenuItem4.PerformClick()
         End If
-    End Sub
-
-
-
-    '############ check for remote updates ################# TODO: clean up
-    Private Sub REMOTE_Tick(sender As Object, e As EventArgs) Handles REMOTE.Tick
-        Try
-            Dim remoteWeb As New WebBrowser
-            remoteWeb.Navigate(phpFileURL.Replace("post.php", "") + "ping.txt")
-            While (Not remoteWeb.ReadyState = WebBrowserReadyState.Complete)
-                Snooze(1)
-            End While
-            Dim loc As String() = remoteWeb.Document.Body.InnerText.Split(" ")
-
-            If loc(1).ToString <> remoteSwitch Then
-                remoteSwitch = loc(1)
-                Select Case Int(loc(0))
-                    Case 1
-                        PlayToolStripMenuItem.PerformClick()
-                    Case 2
-                        PlayToolStripMenuItem.PerformClick()
-                    Case 3
-                        ManSaving.PerformClick()
-                    Case 4
-                        MinToolStripMenuItem2.PerformClick()
-                End Select
-
-            End If
-            remoteWeb.Dispose()
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-        End Try
     End Sub
 End Class
