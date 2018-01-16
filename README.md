@@ -10,6 +10,11 @@ Windows:
 
 `(Video is outdated)`
 
+If your having trouble getting saved location from website make sure you change your internet properties to this.
+
+![ewrror](http://i.imgur.com/v058Ldt.png)
+
+
 ----------------------------
 
 Mac:
@@ -29,8 +34,9 @@ Linux (Java):
 
 Site recommend/used/tested on : https://en.altervista.org/
 
-Upload the `post.php` file to the filemanager.
+Upload the server files to the filemanager.
 
+------------------------------
 Update the code to:
 
 ``Dim onlineEnabled = True``
@@ -39,8 +45,6 @@ Update the code to:
 
 Also check `index.js`
 
-If your having trouble getting saved location from website make sure you change your internet properties to this.
 
-![ewrror](http://i.imgur.com/v058Ldt.png)
 
 
