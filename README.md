@@ -53,3 +53,7 @@ This only works with Windows and Mac port so far.
 
 Look up the `index.html` hosted on your server on your phone and it should work right away. :)
 
+
+# Download 
+
+https://github.com/vishwenga/Smart-Audio-Book-Player/releases
