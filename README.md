@@ -47,6 +47,8 @@ Upload the server files to the filemanager. And update `index.js` according to y
 
 # Remort Control
 
+To enable remote control update code to ``Dim remoteControl = True`` on windows.
+
 This only works with Windows and Mac port so far.
 
 ![remote](https://i.imgur.com/gH0PwuK.jpg?)
