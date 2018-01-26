@@ -8,6 +8,7 @@ Public Class Form1
     Dim phpFileURL As String = "YOUR URL HERE" 'URL for the php file. example : http://exmaple.com/AudioBookSync/post.php
     '====================   ENDS   =====================
 
+    Dim remoteControl As Boolean = False
     Dim shutDownPc As Boolean = False
     Dim toUpload As String = ""
     Dim lastSave As String = ""
@@ -159,7 +160,7 @@ Public Class Form1
 
     '############ check for remote updates #################
     Private Sub REMOTE_Tick(sender As Object, e As EventArgs) Handles REMOTE.Tick
-        If onlineEnabled Then
+        If onlineEnabled && remoteControl Then
             Try
                 Dim remoteWeb As New WebBrowser
                 remoteWeb.Navigate(phpFileURL.Replace("post.php", "") + "ping.txt")
