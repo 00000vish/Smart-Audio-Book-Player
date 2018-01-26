@@ -160,7 +160,7 @@ Public Class Form1
 
     '############ check for remote updates #################
     Private Sub REMOTE_Tick(sender As Object, e As EventArgs) Handles REMOTE.Tick
-        If onlineEnabled && remoteControl Then
+        If onlineEnabled And remoteControl Then
             Try
                 Dim remoteWeb As New WebBrowser
                 remoteWeb.Navigate(phpFileURL.Replace("post.php", "") + "ping.txt")
