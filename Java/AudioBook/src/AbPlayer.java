@@ -24,6 +24,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class AbPlayer {
+	private final String SERVERIP = "localhost";
+	private final int SERVERPORT = 7331;
+	
 	private final JFXPanel fxPanel = new JFXPanel();
 	private String selectedFile = "";
 	private double currentLoc = 0;
@@ -33,10 +36,8 @@ public class AbPlayer {
 	private JLabel timeLabel;
 	private boolean ign = false;
 	private boolean onlineEnabled = true;
-	Socket clientSocket = null;
 
-	private void initPlayer() throws Exception{
-		connectToServer();
+	private void initPlayer() throws Exception{		
 		if(mediaPlayer != null)
 			mediaPlayer.dispose();
 		String bip = selectedFile;
@@ -69,8 +70,7 @@ public class AbPlayer {
 	}
 
 	protected void play(){
-		slider.setMaximum((int)mediaPlayer.getTotalDuration().toSeconds());
-		//timeLabel.setText("0.00/" + String.valueOf(mediaPlayer.getTotalDuration().toMinutes()));		
+		slider.setMaximum((int)mediaPlayer.getTotalDuration().toSeconds());		
 		mediaPlayer.play();
 
 	}
@@ -95,17 +95,9 @@ public class AbPlayer {
 		initPlayer();
 	}
 	
-	private void connectToServer() throws Exception {
-		try {
-			clientSocket = new Socket("localhost", 7331);			
-		}catch(Exception e) {
-			onlineEnabled = false;
-		}		 
-	}
-	
 	private String talkToServer(String data) throws Exception {
-		 if(onlineEnabled) {
-			  Socket clientSocket = new Socket("localhost", 7331);		//hmmm idk
+		 if(onlineEnabled) {			  
+			  Socket clientSocket = new Socket(SERVERIP, SERVERPORT);
 			  DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
 			  outToServer.writeBytes(data);			  
 			  byte[] messageByte = new byte[1000];			 
@@ -113,6 +105,7 @@ public class AbPlayer {
 			  DataInputStream in = new DataInputStream(clientSocket.getInputStream());		    
 			  int bytesRead = in.read(messageByte);
 			  dataString += new String(messageByte, 0, bytesRead);
+			  clientSocket.close();
 			  return dataString;
 		 }else {
 			 return "null";

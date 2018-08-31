@@ -2,14 +2,18 @@ process.env.NODE_ENV = 'production'
 
 var http = require('http');
 var connect = require('connect');
-var port = 1337;
 var app = connect();
 var net = require("net");
 var fs = require('fs');
 var path = require('path')
-var filePath = path.join(__dirname, '/data.txt');
 var toSend = "null";
 var bookmark = 00;
+var filePath = path.join(__dirname, '/data.txt');
+
+//server config info
+var ip = '127.0.0.1';
+var httpPort = 1337;
+var tcpPort = 7331;
 
 //TODO
 function readBookmark() {
@@ -47,13 +51,13 @@ var tcp = net.createServer(function (soc) {
     soc.on('error', function (ex) {
         console.log("error happened");
     });
-}).listen(7331, '127.0.0.1');
+}).listen(tcpPort, ip);
 
 //actual website
 app.use('/home', home);
 app.use('/', other);
 readBookmark();
-http.createServer(app).listen(port);
+http.createServer(app).listen(httpPort);
 
 function other(req, res) {
     switch (req.url) {
