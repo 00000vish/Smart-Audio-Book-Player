@@ -10,11 +10,6 @@ Windows:
 
 [![Video](http://i.imgur.com/KmCVlnU.png)](https://www.youtube.com/watch?v=w3NEF69L3js)
 
-*If your having trouble getting saved location from website make sure you change your internet properties to this*
-
-![ewrror](http://i.imgur.com/v058Ldt.png)
-
-
 ----------------------------
 
 Mac:
