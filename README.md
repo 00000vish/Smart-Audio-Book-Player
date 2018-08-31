@@ -27,13 +27,16 @@ Linux (Java):
 
 # Set up online
 
-Recommend localhost, but if your looking for a online service, i recommend/used/tested on : https://en.altervista.org/
+Update code in
 
-Upload the server files to the filemanager. And update `index.js` according to your domain and update `Form1.vb` code to:
+### Form1.vb
 
-``Dim onlineEnabled = True``
+![form](https://imgur.com/KcSOcSE.png)
 
-``Dim phpFileURL As String = "YOUR URL HERE" 'example : http://exmaple.com/AudioBookSync/post.php``
+
+### server.js
+
+![server](https://imgur.com/qNB4rGE.png)
 
 
 
