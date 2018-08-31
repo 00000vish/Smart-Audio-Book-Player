@@ -49,7 +49,7 @@ To enable remote control update code to ``Dim remoteControl = True`` on windows.
 
 This only works with Windows and Java port so far.
 
-![remote](https://imgur.com/7rlCXUe.jpg?)
+![remote](https://imgur.com/HidF9KH.jpg)
 
 Look up the `index.html` hosted on your server on your phone and it should work right away. :)
 
