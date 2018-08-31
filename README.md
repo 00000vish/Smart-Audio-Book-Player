@@ -27,7 +27,7 @@ Linux (Java):
 
 # Set up online
 
-Update code in
+Configure settings to connect to the server
 
 ### Form1.vb
 
@@ -39,6 +39,9 @@ Update code in
 ![server](https://imgur.com/qNB4rGE.png)
 
 
+### AbPlayer.java
+
+![server](https://imgur.com/qm7qa1O.png)
 
 ------------------------------
 
