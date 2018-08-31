@@ -1,27 +1,34 @@
 ﻿Imports System.IO
 Imports System.Net
 Imports System.Runtime.InteropServices
+Imports System.Threading
+Imports System.Net.Sockets
+Imports System.Text
 
 Public Class Form1
     '==================== FILL INFO ====================
-    Dim onlineEnabled = False  'Set it to TRUE to use online features
-    Dim phpFileURL As String = "YOUR URL HERE" 'URL for the php file. example : http://exmaple.com/AudioBookSync/post.php
+    Dim remoteControl As Boolean = True 'Set if you wanna allow webbrowser to control app
+    Dim onlineEnabled = True  'Set it to TRUE to use online features
+    Dim ipAdress = "127.0.0.1" 'domain
+    Dim serverPort = "7331" 'port
     '====================   ENDS   =====================
 
-    Dim remoteControl As Boolean = False
+    Dim client As TcpClient
+    Dim nwStream As NetworkStream
+    Dim connectionSucceful = False
     Dim shutDownPc As Boolean = False
     Dim toUpload As String = ""
     Dim lastSave As String = ""
-    Dim remoteSwitch As Integer = 0
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         setUpPlayer()
-        getOnlineLocation(False)
+        setupConnection()
         setupRemote()
     End Sub
 
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Try
+            client.Close()
             My.Settings.Save()
         Catch ex As Exception
         End Try
@@ -29,16 +36,46 @@ Public Class Form1
 
     '+++++++++++++++++++++++++++++++++++++++++++++++ OTHER FUNCTIONS +++++++++++++++++++++++++++++++++++++++++++++++
 
-    '################ check if remote has be activated ############
+    '################ sets up connection ############
+    Private Sub setupConnection()
+        If onlineEnabled Then
+            Dim thread As New Thread(
+          Sub()
+              Try
+                  client = New TcpClient(ipAdress, serverPort)
+                  nwStream = client.GetStream()
+                  connectionSucceful = True
+                  getOnlineLocation(False)
+              Catch ex As Exception
+                  onlineEnabled = False
+              End Try
+          End Sub
+          )
+            thread.Start()
+        End If
+    End Sub
+    '################ sends and get data ############
+    Private Function talkToServer(toSend As String)
+        If connectionSucceful Then
+            Dim bytesToSend As Byte() = Encoding.UTF8.GetBytes(toSend)
+            Console.WriteLine("Sending : " & toSend)
+            nwStream.Write(bytesToSend, 0, bytesToSend.Length)
+
+            Dim bytesToRead As Byte() = New Byte(client.ReceiveBufferSize - 1) {}
+            Dim bytesRead As Integer = nwStream.Read(bytesToRead, 0, client.ReceiveBufferSize)
+            Console.WriteLine("Received : " & Encoding.UTF8.GetString(bytesToRead, 0, bytesRead))
+            Return Encoding.UTF8.GetString(bytesToRead, 0, bytesRead)
+        End If
+        Return "null"
+    End Function
+
+    '################ setup remote ############
     Private Sub setupRemote()
-        Dim remoteWeb As New WebBrowser
-        remoteWeb.Navigate(phpFileURL.Replace("post.php", "") + "reset.php?w=0 0")
-        While (Not remoteWeb.ReadyState = WebBrowserReadyState.Complete)
-            Snooze(1)
-        End While
-        REMOTE.Interval = 2000
-        REMOTE.Enabled = True
-        REMOTE.Start()
+        If onlineEnabled And remoteControl Then
+            REMOTE.Interval = 2000
+            REMOTE.Enabled = True
+            REMOTE.Start()
+        End If
     End Sub
 
     '################# OPEN FILE #################
@@ -125,12 +162,7 @@ Public Class Form1
         If (onlineEnabled = True) Then
             Try
                 If toUpload <> "" Then
-                    Dim web As New WebBrowser
-                    web.Navigate(phpFileURL & "?w=" & toUpload)
-                    While (Not web.ReadyState = WebBrowserReadyState.Complete)
-                        Snooze(1)
-                    End While
-                    web.Dispose()
+                    talkToServer("save-" & toUpload)
                 End If
             Catch ex As Exception
             End Try
@@ -142,16 +174,10 @@ Public Class Form1
     Private Sub getOnlineLocation(jump As Boolean)
         If (onlineEnabled) Then
             Try
-                Dim web As New WebBrowser
-                web.Navigate(phpFileURL.Replace("post.php", "") + "data.txt")
-                While (Not web.ReadyState = WebBrowserReadyState.Complete)
-                    Snooze(1)
-                End While
-                Dim loc As String = web.Document.Body.InnerText
-                web.Dispose()
-                OnlineSavedToolStripMenuItem.Text = loc.ToString.Split(".")(0) & " Online Saved"
+                Dim res = talkToServer("get")
+                OnlineSavedToolStripMenuItem.Text = res & " Online Saved"
                 If (jump) Then
-                    AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = Convert.ToDouble(loc.ToString)
+                    AxWindowsMediaPlayer1.Ctlcontrols.currentPosition = Convert.ToDouble(res)
                 End If
             Catch ex As Exception
             End Try
@@ -160,36 +186,46 @@ Public Class Form1
 
     '############ check for remote updates #################
     Private Sub REMOTE_Tick(sender As Object, e As EventArgs) Handles REMOTE.Tick
-        If onlineEnabled And remoteControl Then
-            Try
-                Dim remoteWeb As New WebBrowser
-                remoteWeb.Navigate(phpFileURL.Replace("post.php", "") + "ping.txt")
-                While (Not remoteWeb.ReadyState = WebBrowserReadyState.Complete)
-                    Snooze(1)
-                End While
-                Dim loc As String() = remoteWeb.Document.Body.InnerText.Split(" ")
-
-                If loc(1).ToString <> remoteSwitch Then
-                    remoteSwitch = loc(1)
-                    Select Case Int(loc(0))
-                        Case 1
-                            PlayToolStripMenuItem.PerformClick()
-                        Case 2
-                            PlayToolStripMenuItem.PerformClick()
-                        Case 3
-                            ManSaving.PerformClick()
-                        Case 4
-                            MinToolStripMenuItem2.PerformClick()
-                    End Select
-
-                End If
-                remoteWeb.Dispose()
-            Catch ex As Exception
-                MsgBox(ex.ToString)
-            End Try
+        Dim res = talkToServer("null")
+        If res.ToString().Contains("-") Then
+            Dim com = res.ToString().Split("-")(0)
+            Dim tim = res.ToString().Split("-")(1)
+            If com.Equals("shut") Then
+                Select Case tim
+                    Case "30"
+                        ToolStripMenuItem4.PerformClick()
+                    Case "1"
+                        HourToolStripMenuItem.PerformClick()
+                    Case "2"
+                        HoursToolStripMenuItem.PerformClick()
+                    Case "3"
+                        HoursToolStripMenuItem1.PerformClick()
+                End Select
+            End If
+            If com.Equals("close") Then
+                Select Case tim
+                    Case "30"
+                        MinToolStripMenuItem2.PerformClick()
+                    Case "1"
+                        HourToolStripMenuItem1.PerformClick()
+                    Case "2"
+                        HourToolStripMenuItem2.PerformClick()
+                    Case "3"
+                        HoursToolStripMenuItem2.PerformClick()
+                End Select
+            End If
         Else
-            REMOTE.Stop()
+            If res.Equals("play") Then
+                AxWindowsMediaPlayer1.Ctlcontrols.play()
+            End If
+            If res.Equals("pause") Then
+                AxWindowsMediaPlayer1.Ctlcontrols.pause()
+            End If
+            If res.Equals("save") Then
+                upload()
+            End If
         End If
+
     End Sub
 
     '+++++++++++++++++++++++++++++++++++++++++++++++ CONTROL BUTTONS +++++++++++++++++++++++++++++++++++++++++++++++

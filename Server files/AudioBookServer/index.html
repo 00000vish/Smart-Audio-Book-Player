@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>Remote</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="buttons.css">
+    <script src="myscripts.js"></script>
+</head>
+
+<body>
+  <div class="controllers">
+    <br><br><br>
+    <h1 class="control">Controls</h1>
+    <button class="button button1" onclick="play()">Play</button>
+    <button class="button button3" onclick="pause()">Pause</button>
+    <button class="button button2" onclick="save()">Save</button>
+  </div>
+
+
+  <div class="closeapp">
+    <br><br><br><br>
+    <h1 class="close">Close App In </h1>
+    <button class="button button4" onclick="closeapp(30)">30 mins</button>
+    <button class="button button4" onclick="closeapp(1)">1 hour</button>
+    <button class="button button4" onclick="closeapp(2)">2 hour</button>
+    <button class="button button4" onclick="closeapp(3)">3 hour</button>
+
+  </div>
+
+<div class="shutodwn">
+  <br><br><br><br>
+  <h1 class="shut">Shutdown In </h1>
+  <button class="button button4" onclick="shutdown(30)">30 mins</button>
+  <button class="button button4" onclick="shutdown(1)">1 hour</button>
+  <button class="button button4" onclick="shutdown(2)">2 hour</button>
+  <button class="button button4" onclick="shutdown(3)">3 hour</button>
+</div>
+
+<br>
+<div>
+  <iframe id="frame" width="500" height="500" src=""></iframe>
+</div>
+
+</body>
+</html>

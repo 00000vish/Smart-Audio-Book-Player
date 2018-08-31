@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "AudioBookServer", "AudioBookServer\AudioBookServer.njsproj", "{BD41BC10-4522-4F68-949F-E4074FC3A88D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD41BC10-4522-4F68-949F-E4074FC3A88D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD41BC10-4522-4F68-949F-E4074FC3A88D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD41BC10-4522-4F68-949F-E4074FC3A88D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD41BC10-4522-4F68-949F-E4074FC3A88D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C1DA19E7-1CB2-423D-B126-275A8409D9AF}
+	EndGlobalSection
+EndGlobal
