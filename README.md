@@ -1,6 +1,6 @@
 # Smart-Audio-Book-Player
 Allows you to listen to audio books, it automatically saves your progress and remebers the book last played. It also can shut down your pc after certain amount of time, or close it self.
-Also allows you to upload the saved location to your server (file hosting site) so your last saved location is accessible on any device you decide to listen to the audiobook (Synced over the web). 
+Also allows you to upload the saved location to a server so your last saved location is accessible on any device you decide to listen to the audiobook (Synced over the web). 
 
 ALSO can be controlled by Phone (only windows and mac port).
 
@@ -44,7 +44,7 @@ Upload the server files to the filemanager. And update `index.js` according to y
 
 To enable remote control update code to ``Dim remoteControl = True`` on windows.
 
-This only works with Windows and Mac port so far.
+This only works with Windows and Java port so far.
 
 ![remote](https://imgur.com/7rlCXUe.jpg?)
 
