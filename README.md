@@ -1,8 +1,8 @@
 # Smart-Audio-Book-Player
 Allows you to listen to audio books, it automatically saves your progress and remebers the book last played. It also can shut down your pc after certain amount of time, or close it self.
-Also allows you to upload the saved location to a server so your last saved location is accessible on any device you decide to listen to the audiobook (Synced over the web). 
+Also allows you to upload the saved location to a Nodejs server so your last saved location is accessible on any device you decide to listen to the audiobook (Synced over the web). 
 
-ALSO can be controlled by Phone (only windows and Java port).
+ALSO can be controlled by Phone.
 
 # Ports 
 
