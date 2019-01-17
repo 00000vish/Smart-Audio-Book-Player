@@ -8,7 +8,7 @@ ALSO can be controlled by Phone.
 
 Windows:
 
-[![Video](http://i.imgur.com/KmCVlnU.png)](https://www.youtube.com/watch?v=w3NEF69L3js)
+[![Video](http://i.imgur.com/KmCVlnU.png)]()
 
 ----------------------------
 
@@ -58,5 +58,3 @@ Look up the `index.html` hosted on your server on your phone and it should work 
 
 
 # Download 
-
-https://github.com/vishwenga/Smart-Audio-Book-Player/releases
